@@ -1,6 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+// import classes from './App.scss';
+const classes = {};
+
 export class App extends React.PureComponent{
   constructor(props){
     super(props);
@@ -8,7 +11,9 @@ export class App extends React.PureComponent{
 
   render(){
     return (
-      <div>App</div>
+      <div className={classes.root}>
+        App
+      </div>
     );
   }
 }

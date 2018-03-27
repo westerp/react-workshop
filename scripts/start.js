@@ -8,15 +8,14 @@ const {HOST, PORT, HTTPS} = process.env;
 const config = require(paths.webpackDev);
 config.serve = config.serve || {};
 config.serve.https = HTTPS ? 'https' : 'http';
-config.serve.host = HOST || '0.0.0.0';
+config.serve.host = HOST || 'localhost';
 config.serve.port = parseInt(PORT) || 3000;
 
-clearConsole();
-serve({config}).then(() => {
-  devServer.on('listening', () => {
+serve({config}).then(server => {
+  server.on('listening', () => {
     console.log(chalk.cyan('Development server ready\n'));
   });
-})().catch(err => {
+}).catch(err => {
   console.log(err);
   process.exit(1);
 });
