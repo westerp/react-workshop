@@ -4,7 +4,7 @@
   "description": "react-workshop",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node ./scripts/start.js"
   },
   "repository": {
     "type": "git",
@@ -17,7 +17,11 @@
   },
   "homepage": "https://github.com/rudfoss/react-workshop#readme",
   "devDependencies": {
-    "webpack": "^4.2.0"
+    "address": "^1.0.3",
+    "detect-port-alt": "^1.1.5",
+    "inquirer": "^5.2.0",
+    "webpack": "^4.2.0",
+    "webpack-serve": "^0.2.0"
   },
   "dependencies": {
     "prop-types": "^15.6.1",
