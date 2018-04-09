@@ -1,5 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import {hot} from 'react-hot-loader';
+
+import Component from './Component'
 
 // import classes from './App.scss';
 const classes = {};
@@ -12,9 +15,10 @@ export class App extends React.PureComponent{
   render(){
     return (
       <div className={classes.root}>
-        App 2
+        <h1>App</h1>
+        <Component text="Cool"/>
       </div>
     );
   }
 }
-export default App;
+export default hot(module)(App);
