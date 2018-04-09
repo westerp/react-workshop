@@ -62,20 +62,14 @@
   },
   "babel": {
     "presets": [
-      [
-        "env",
-        {
-          "targets": {
-            "browsers": [
-              "last 2 versions"
-            ]
-          }
-        }
-      ],
+      "env",
       "react"
     ],
     "plugins": [
       "react-hot-loader/babel"
     ]
-  }
+  },
+  "browserslist": [
+    "last 2 versions"
+  ]
 }
