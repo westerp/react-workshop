@@ -4,8 +4,7 @@ import {hot} from 'react-hot-loader';
 
 import Component from './Component'
 
-// import classes from './App.scss';
-const classes = {};
+import classes from './App.scss';
 
 export class App extends React.PureComponent{
   constructor(props){
