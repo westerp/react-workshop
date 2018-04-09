@@ -4,6 +4,7 @@ import {hot} from 'react-hot-loader';
 
 import Component from './Component'
 
+import './App.global.scss';
 import classes from './App.scss';
 
 export class App extends React.PureComponent{
