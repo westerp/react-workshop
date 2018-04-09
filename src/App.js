@@ -12,7 +12,7 @@ export class App extends React.PureComponent{
   render(){
     return (
       <div className={classes.root}>
-        App
+        App 2
       </div>
     );
   }

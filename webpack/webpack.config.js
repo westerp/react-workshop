@@ -8,15 +8,17 @@ const srcPath = leaf => {
 }
 
 const config = {
-	entry: srcPath('./index.mjs'),
+	entry: srcPath('./index.js'),
 
-	resolve: {
-		extensions: ['.ts', '.tsx', '.js', '.mjs']
+	output: {
+		path: path.resolve(base, './dist'),
+		filename: '[name]-[hash].js',
+    publicPath: '/'
 	},
 	
 	module: {
 		rules: [{
-			test: /\.(js|jsx|mjs)$/,
+			test: /\.(js|jsx)$/,
 			exclude: /node_modules/,
 			use: 'babel-loader'
 		}]
@@ -27,7 +29,18 @@ const config = {
 			inject: 'body',
 			hash: true,
 			template: srcPath('./index.html'),
-			minify: false
+      minify: {
+        removeComments: true,
+        collapseWhitespace: true,
+        removeRedundantAttributes: true,
+        useShortDoctype: true,
+        removeEmptyAttributes: true,
+        removeStyleLinkTypeAttributes: true,
+        keepClosingSlash: true,
+        minifyJS: true,
+        minifyCSS: true,
+        minifyURLs: true
+      }
 		})
 	],
 	

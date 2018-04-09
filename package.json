@@ -44,12 +44,12 @@
   },
   "babel": {
     "presets": [
-      "env",
-      "react",
-      "stage-1"
+      ["env", {
+        "targets": {
+          "browsers": [ "last 2 versions" ]
+        }
+      }],
+      "react"
     ]
-  },
-  "eslintConfig": {
-    "extends": "react-app"
   }
 }
