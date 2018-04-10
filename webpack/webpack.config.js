@@ -2,6 +2,8 @@ const webpack = require('webpack');
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
+const configJson = require('./config.json');
+
 const base = path.resolve(__dirname, '../');
 const srcPath = leaf => {
 	return path.resolve(base, './src', leaf);
@@ -70,6 +72,10 @@ const config = {
         minifyCSS: true,
         minifyURLs: true
       }
+		}),
+
+		new webpack.DefinePlugin({
+			APOD_API_KEY: configJson.apodKey
 		})
 	],
 	

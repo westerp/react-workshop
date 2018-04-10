@@ -6,6 +6,7 @@ import {hot} from 'react-hot-loader';
 import {createStore, history} from './store';
 
 import './App.global.scss';
+import BaseRoute from './routes';
 
 export class App extends React.PureComponent{
   constructor(props){
@@ -26,7 +27,7 @@ export class App extends React.PureComponent{
     return (
 			<Provider store={this.store}>
 				<ConnectedRouter history={this.history}>
-					<h1>App</h1>
+					<BaseRoute/>
 				</ConnectedRouter>
 			</Provider>
     );
