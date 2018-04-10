@@ -10,6 +10,7 @@ const config = {
 	devServer: {
 		port: 1337,
 		historyApiFallback: true,
+		https: true,
 		hot: true,
 		overlay: true,
 		stats: base.stats

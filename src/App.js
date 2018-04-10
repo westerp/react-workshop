@@ -1,23 +1,34 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+import {Provider} from 'react-redux';
+import {ConnectedRouter} from 'react-router-redux';
 import {hot} from 'react-hot-loader';
 
-import Component from './Component'
+import {createStore, history} from './store';
 
 import './App.global.scss';
-import classes from './App.scss';
 
 export class App extends React.PureComponent{
   constructor(props){
     super(props);
+
+    this.setup();
+	}
+	
+	setupRedux(){
+    this.store = createStore({});
+    this.history = history;
+  }
+  setup(){
+    this.setupRedux();
   }
 
   render(){
     return (
-      <div className={classes.root}>
-        <h1>App</h1>
-        <Component text="Cool"/>
-      </div>
+			<Provider store={this.store}>
+				<ConnectedRouter history={this.history}>
+					<h1>App</h1>
+				</ConnectedRouter>
+			</Provider>
     );
   }
 }
