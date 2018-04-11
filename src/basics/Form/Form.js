@@ -11,12 +11,18 @@ export class Form extends Component{
 		});
 	}
 
+	onSubmit = evt => {
+		console.log('submitted', this.state);
+		evt.preventDefault();
+	}
+
 	render(){
 		const {value} = this.state;
 		return (
-			<div>
+			<form onSubmit={this.onSubmit}>
 				<input type="text" value={value} onChange={this.onInputChange}/>
-			</div>
+				<input type="submit"/>
+			</form>
 		);
 	}
 }
