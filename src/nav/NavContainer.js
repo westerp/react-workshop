@@ -10,6 +10,7 @@ export const NavContainer = () => (
     <ol className={classes.menu}>
       <li><NavLink to="/" exact>Home</NavLink></li>
       <li><NavLink to="/basics">Basics</NavLink></li>
+      <li><NavLink to="/hoisted" exact>Hoisted</NavLink></li>
     </ol>
   </nav>
 );

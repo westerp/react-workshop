@@ -4,11 +4,13 @@ import {Route, Switch} from 'react-router-dom';
 
 import HomeContainer from './home';
 import BasicsContainer from './basics';
+import HoistedContainer from './hoisted';
 import ApodContainer from './apod';
 
 export const BaseRoute = () => (
 	<Switch>
 		<Route path="/basics" component={BasicsContainer}/>
+		<Route path="/hoisted" component={HoistedContainer}/>
 		<Route path="/apod" component={ApodContainer}/>
 		<Route component={HomeContainer}/>
 	</Switch>
