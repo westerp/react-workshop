@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 
 export class Button extends Component{
-  onClick = evt => {
+  onClick = () => {
     alert('You clicked the button.');
   }
   

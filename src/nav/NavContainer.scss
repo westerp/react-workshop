@@ -1,13 +1,25 @@
 .menu{
   display: flex;
   list-style: none;
-  margin: 0;
+  margin: 0 0 10px;
   padding: 0;
+  border-bottom: 1px solid #bbb;
   > li{
     margin: 0;
     padding: 0;
-    & + li:after{
-      content: '|';
+
+    a{
+      display: block;
+      font-size: 24px;
+      padding: 10px 15px;
+      text-decoration: none;
+      &:global(.active){
+        background-color: #bbb;
+      }
+    }
+
+    & + li{
+      border-left: 1px solid #bbb;
     }
   }
 }
