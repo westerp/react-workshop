@@ -75,7 +75,7 @@ const config = {
 		}),
 
 		new webpack.DefinePlugin({
-			APOD_API_KEY: configJson.apodKey
+			APOD_API_KEY: JSON.stringify(configJson.apodKey)
 		})
 	],
 	

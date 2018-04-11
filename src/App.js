@@ -7,6 +7,7 @@ import {createStore, history} from './store';
 
 import './App.global.scss';
 import BaseRoute from './routes';
+import { NavContainer } from './nav/NavContainer';
 
 export class App extends React.PureComponent{
   constructor(props){
@@ -27,7 +28,16 @@ export class App extends React.PureComponent{
     return (
 			<Provider store={this.store}>
 				<ConnectedRouter history={this.history}>
-					<BaseRoute/>
+          <div>
+            <header>
+              <NavContainer/>
+            </header>
+            <div>
+					    <BaseRoute/>
+            </div>
+            <footer>
+            </footer>
+          </div>
 				</ConnectedRouter>
 			</Provider>
     );
