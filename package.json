@@ -8,6 +8,7 @@
     "build:webpack": "webpack --config ./webpack/webpack.config.prod.js",
     "build": "npm run clean:dist && npm run build:webpack",
     "start": "webpack-dev-server --config ./webpack/webpack.config.dev.js --progress --colors",
+    "test:watch": "jest --watch",
     "test": "jest",
     "nsp": "nsp check"
   },
