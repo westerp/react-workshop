@@ -1,4 +1,4 @@
-import {createStore as createReduxStore, applyMiddleware} from 'redux';
+import {createStore as createReduxStore, applyMiddleware, compose} from 'redux';
 import thunk from 'redux-thunk';
 
 import {browserHistory} from 'react-router';

@@ -2,7 +2,10 @@ const webpack = require('webpack');
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
-const configJson = require('./config.json');
+let configJson = {};
+try {
+	configJson = require('./config.json');
+} catch (err) {}
 
 const base = path.resolve(__dirname, '../');
 const srcPath = leaf => {

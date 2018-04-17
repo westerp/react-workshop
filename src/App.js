@@ -4,10 +4,9 @@ import {ConnectedRouter} from 'react-router-redux';
 import {hot} from 'react-hot-loader';
 
 import {createStore, history} from './store';
+import {NavContainer, BaseRoute} from './nav';
 
 import './App.global.scss';
-import BaseRoute from './routes';
-import { NavContainer } from './nav/NavContainer';
 
 export class App extends React.PureComponent{
   constructor(props){
