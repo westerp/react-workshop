@@ -10,7 +10,9 @@
     "start": "webpack-dev-server --config ./webpack/webpack.config.dev.js --progress --colors",
     "test:watch": "jest --watch",
     "test": "jest",
-    "nsp": "nsp check"
+    "nsp": "nsp check",
+    "eslint": "eslint --color src",
+    "eslint:watch": "esw --color --watch src"
   },
   "repository": {
     "type": "git",
@@ -36,6 +38,7 @@
   "devDependencies": {
     "autoprefixer": "^8.2.0",
     "babel-core": "^6.26.0",
+    "babel-eslint": "^8.2.3",
     "babel-jest": "^22.4.3",
     "babel-loader": "^7.1.4",
     "babel-preset-env": "^1.6.1",
@@ -49,6 +52,7 @@
     "eslint-plugin-import": "^2.9.0",
     "eslint-plugin-jsx-a11y": "^6.0.3",
     "eslint-plugin-react": "^7.7.0",
+    "eslint-watch": "^3.1.4",
     "fs-extra": "^5.0.0",
     "html-webpack-plugin": "^3.1.0",
     "identity-obj-proxy": "^3.0.0",
@@ -87,6 +91,57 @@
       "react-hot-loader/babel"
     ]
   },
+  "eslintConfig": {
+    "parser": "babel-eslint",
+    "parserOptions": {
+      "ecmaVersion": 8,
+      "sourceType": "module",
+      "ecmaFeatures": {
+        "impliedStrict": true,
+        "jsx": true,
+        "experimentalObjectRestSpread": true
+      }
+    },
+    "env": {
+      "es6": true,
+      "browser": true,
+      "node": true
+    },
+    "plugins": [
+      "react"
+    ],
+    "extends": [
+      "eslint:recommended",
+      "plugin:react/recommended",
+      "plugin:import/errors",
+      "plugin:import/warnings"
+    ],
+    "rules": {
+      "no-var": 2,
+      "no-unused-vars": [
+        "warn"
+      ],
+      "no-extra-boolean-cast": 0,
+      "eqeqeq": [
+        "warn",
+        "smart"
+      ],
+      "no-console": 0,
+      "semi": [
+        1,
+        "always"
+      ],
+      "no-trailing-spaces": 0,
+      "no-debugger": 2,
+      "no-lone-blocks": 2,
+      "import/no-named-as-default": 0,
+      "import/no-named-as-default-member": 0,
+      "import/no-unresolved": 0
+    }
+  },
+  "eslintIgnore": [
+    "**/*.test.js"
+  ],
   "browserslist": [
     "last 2 versions"
   ]

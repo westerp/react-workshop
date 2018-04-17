@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-import PropTypes from 'prop-types';
 
 export class BasicContainer extends Component{
 	render(){
@@ -8,9 +7,6 @@ export class BasicContainer extends Component{
 				Nothing to see here... move along
 			</div>
 		);
-	}
-
-	static propTypes = {
 	}
 }
 export default BasicContainer;

@@ -1,7 +1,6 @@
 import {createStore as createReduxStore, applyMiddleware} from 'redux';
 import thunk from 'redux-thunk';
 
-import {browserHistory} from 'react-router';
 import createHistory from 'history/createBrowserHistory';
 import {routerMiddleware} from 'react-router-redux';
 
