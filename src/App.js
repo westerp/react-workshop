@@ -21,6 +21,7 @@ export class App extends React.PureComponent{
 	setupRedux(){
 		this.store = createStore({});
 		this.history = history;
+		window.app = this;
 	}
 	setup(){
 		this.setupRedux();
