@@ -2,18 +2,16 @@ const webpack = require('webpack');
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
-let configJson = {};
-try {
-	configJson = require('./config.json');
-} catch (err) {}
-
 const base = path.resolve(__dirname, '../');
 const srcPath = leaf => {
 	return path.resolve(base, './src', leaf);
 }
 
 const config = {
-	entry: srcPath('./index.js'),
+	entry: [
+		'babel-polyfill',
+		srcPath('./index.js'),
+	],
 
 	output: {
 		path: path.resolve(base, './dist'),
@@ -26,35 +24,6 @@ const config = {
 			test: /\.(js|jsx)$/,
 			exclude: /node_modules/,
 			use: 'babel-loader'
-		}, {
-			test: /\.global\.(css|scss|sass)$/,
-			exclude: /node_modules/,
-			use: [{
-				loader: 'style-loader'
-			}, {
-				loader: 'css-loader',
-			}, {
-				loader: 'postcss-loader'
-			}, {
-				loader: 'sass-loader'
-			}]
-		}, {
-			test: /\.(css|scss|sass)$/,
-			exclude: /(node_modules|\.global\.(css|scss|sass))/,
-			use: [{
-				loader: 'style-loader'
-			}, {
-				loader: 'css-loader',
-				options: {
-					modules: true,
-					localIdentName: '[name]-[local]--[hash:base64:5]',
-					importLoaders: 2
-				}
-			}, {
-				loader: 'postcss-loader'
-			}, {
-				loader: 'sass-loader'
-			}]
 		}]
 	},
 
@@ -75,10 +44,6 @@ const config = {
         minifyCSS: true,
         minifyURLs: true
       }
-		}),
-
-		new webpack.DefinePlugin({
-			APOD_API_KEY: JSON.stringify(configJson.apodKey)
 		})
 	],
 	
