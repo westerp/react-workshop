@@ -9,9 +9,21 @@ const srcPath = leaf => {
 
 const config = {
 	entry: [
-		'babel-polyfill',
-		srcPath('./index.js'),
-	],
+			'babel-polyfill',
+			srcPath('./index.js'),
+		],
+
+	optimization: {
+		splitChunks: {
+			cacheGroups: {
+				commons: {
+					test: /[\\/]node_modules[\\/]/,
+					name: "vendors",
+					chunks: "all"
+				}
+			}
+		}
+	},
 
 	output: {
 		path: path.resolve(base, './dist'),
