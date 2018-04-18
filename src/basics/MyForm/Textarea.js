@@ -1,22 +1,26 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const func = ({title, ...rest}) => {
-  return <div title={title}></div>
+const idGen = (() => {
+  let num = 0;
+  return () => {
+    return `dynamicid-${num++}`;
+  };
+})();
+
+export const Textarea = ({label, value, placeholder, onChange, type, ...rest}) => {
+  const id = idGen();
+  return (
+    <div>
+      <label htmlFor={id}>{label || placeholder}</label>
+      {type === 'textarea' ? 
+        (<textarea placeholder={placeholder} id={id} value={value} onChange={evt => onChange(evt.target.value)} {...rest}/>)
+        :
+        (<input placeholder={placeholder} id={id} type={type} value={value} onChange={evt => onChange(evt.target.value)} {...rest}/>)
+      }
+    </div>
+    );
 }
-
-func({
-  title: '123',
-  value: 'abc',
-  bool: true
-})
-
-export const Textarea = ({value, onChange, type, ...rest}) => (
-  type === 'textarea' ? 
-    (<textarea value={value} onChange={evt => onChange(evt.target.value)} {...rest}/>)
-    :
-    (<input type={type} value={value} onChange={evt => onChange(evt.target.value)} {...rest}/>)
-);
 Textarea.defaultProps = {
   value: '',
   type: 'text'
