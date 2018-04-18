@@ -29,7 +29,7 @@ export class BasicContainer extends Component{
 				</Button>
 				<Textbox
 					value={this.state.inputValue}
-					onChange={this.onInputChange}
+					onTextChange={this.onInputChange}
 					/>
 			</div>
 		);
