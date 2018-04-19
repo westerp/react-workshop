@@ -1,7 +1,0 @@
-https://nodejs.org/en/                     <- Download 8.11.1 LTS
-https://git-scm.com/download/win           <- Download
-https://github.com/rudfoss/react-workshop  <- Clone
-
-Recommended IDE:
-Visual Studio Code
-https://code.visualstudio.com/
