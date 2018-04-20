@@ -20,6 +20,7 @@ export class NavContainer extends React.PureComponent{
         <ol className={classes.menu}>
           <li><NavLink to="/" exact>Home</NavLink></li>
           <li><NavLink to="/register">Create User</NavLink></li>
+          <li><NavLink to="/users">List all users</NavLink></li>
         </ol>
       </nav>
     );
