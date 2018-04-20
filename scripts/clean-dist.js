@@ -1,7 +1,7 @@
 const path = require('path');
 const fs = require('fs-extra');
 
-const base = path.resolve(__dirname, '../');
-const dist = path.resolve(base, './dist');
+const basePath = path.resolve(__dirname, '../');
+const distPath = path.resolve(basePath, './dist');
 
-fs.emptyDir(dist);
+fs.emptyDir(distPath);

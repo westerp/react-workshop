@@ -1,49 +1,45 @@
-const webpack = require('webpack');
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
-const base = path.resolve(__dirname, '../');
-const srcPath = leaf => {
-	return path.resolve(base, './src', leaf);
-}
+const basePath = path.resolve(__dirname, '../');
+const srcPath = path.resolve(basePath, './src');
 
 const config = {
-	entry: [
-			'babel-polyfill',
-			srcPath('./index.js'),
-		],
+  entry: [
+    'babel-polyfill',
+    path.resolve(srcPath, './index.js')
+  ],
 
-	optimization: {
-		splitChunks: {
-			cacheGroups: {
-				commons: {
-					test: /[\\/]node_modules[\\/]/,
-					name: "vendors",
-					chunks: "all"
-				}
-			}
-		}
-	},
+  output: {
+    path: path.resolve(basePath, './dist'),
+    filename: 'src/[name]-[hash].js'
+  },
 
-	output: {
-		path: path.resolve(base, './dist'),
-		filename: 'src/[name]-[hash].js',
-    publicPath: '/'
-	},
-	
-	module: {
-		rules: [{
-			test: /\.(js|jsx)$/,
-			exclude: /node_modules/,
-			use: 'babel-loader'
-		}]
-	},
+  optimization: {
+    splitChunks: {
+      cacheGroups: {
+        commons: {
+          test: /node_modules/,
+          name: "vendors",
+          chunks: "all"
+        }
+      }
+    }
+  },
 
-	plugins: [
-		new HtmlWebpackPlugin({
-			inject: 'body',
-			hash: true,
-			template: srcPath('./index.html'),
+  module: {
+    rules: [
+      {
+        test: /\.(js|jsx)$/,
+        exclude: /node_modules/,
+        use: 'babel-loader'
+      }
+    ]
+  },
+
+  plugins: [
+    new HtmlWebpackPlugin({
+      template: path.resolve(srcPath, './index.html'),
       minify: {
         removeComments: true,
         collapseWhitespace: true,
@@ -56,20 +52,8 @@ const config = {
         minifyCSS: true,
         minifyURLs: true
       }
-		})
-	],
-	
-	stats: {
-		assets: true,
-		children: false,
-		chunks: false,
-		hash: false,
-		modules: false,
-		publicPath: true,
-		timings: false,
-		version: false,
-		warnings: true
-	}
+    })
+  ]
 };
 
 module.exports = config;
