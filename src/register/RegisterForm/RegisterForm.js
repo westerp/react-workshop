@@ -27,7 +27,7 @@ export class RegisterForm extends React.PureComponent{
 					</div>
 
 					<div className={classes.avatarFrame}>
-						<Avatar/>
+						<Avatar src={props.avatarImageSrc}/>
 
 						<hr className={classes.separator}/>
 
