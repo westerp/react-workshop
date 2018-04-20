@@ -26,6 +26,6 @@ const mapDispatchToProps = dispatch => ({
 	onAvatarImageSrcChange: (evt, newValue) => dispatch(registerFormDuck.setAvatarImageSrc(newValue)),
 
 	onReset: () => dispatch(registerFormDuck.resetForm()),
-	onSubmit: () => {}
+	onSubmit: () => dispatch(registerFormDuck.submitUser())
 });
 export default connect(mapStateToProps, mapDispatchToProps)(RegisterForm);

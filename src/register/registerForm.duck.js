@@ -1,4 +1,5 @@
 import {createAction, handleActions} from 'redux-actions';
+import * as usersDucks from '../users/users.duck';
 
 const namespace = 'registerForm/';
 const createNsAction = (action, payload) => createAction(namespace+action, payload);
@@ -14,6 +15,17 @@ export const getDateOfBirth = state => {
 export const getUserName = state => state.userName || '';
 export const getEmail = state => state.email || '';
 export const getAvatarImageSrc = state => state.avatarImageSrc || '';
+
+export const getFormData = state => {
+  return {
+    firstName: getFirstName(state),
+    lastName: getLastName(state),
+    dateOfBirth: getDateOfBirth(state),
+    userName: getUserName(state),
+    email: getEmail(state),
+    avatarImageSrc: getAvatarImageSrc(state)
+  };
+};
 
 
 export const setFirstName = createNsAction('SET_FIRSTNAME', (name = '') => name);
@@ -31,6 +43,13 @@ export const resetForm = () => dispatch => {
   dispatch(setUserName());
   dispatch(setEmail());
   dispatch(setAvatarImageSrc());
+};
+export const submitUser = () => async (dispatch, getGlobalState) => {
+  const state = getState(getGlobalState());
+  const userInfo = getFormData(state);
+
+  dispatch(usersDucks.addUser(userInfo));
+  dispatch(resetForm());
 };
 
 
