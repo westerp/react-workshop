@@ -5,7 +5,8 @@ $newbtn-size: 45px;
 	justify-content: center;
 	align-items: center;
 	table {
-
+		align-self: stretch;
+		flex: 1 1 auto;
 	}
 
 	.newBtn{

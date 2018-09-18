@@ -8,6 +8,7 @@ export class name extends React.PureComponent{
 	render(){
 		return (
 			<div className={classes.container}>
+				<h1>The awesome user database</h1>
 				<table>
 					<thead>
 						<tr>
