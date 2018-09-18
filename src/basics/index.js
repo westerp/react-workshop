@@ -1,3 +1,3 @@
-import BasicsContainer from './BasicsContainer';
-export {BasicsContainer};
-export default BasicsContainer;
+import BasicsContainer from "./BasicsContainer"
+export {BasicsContainer}
+export default BasicsContainer

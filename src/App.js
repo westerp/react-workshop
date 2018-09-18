@@ -1,30 +1,30 @@
 /* global module */
 
-import React from 'react';
-import {Provider} from 'react-redux';
-import {ConnectedRouter} from 'react-router-redux';
-import {hot} from 'react-hot-loader';
-import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'; 
+import React from "react"
+import {Provider} from "react-redux"
+import {ConnectedRouter} from "connected-react-router"
+import {hot} from "react-hot-loader"
+import MuiThemeProvider from "material-ui/styles/MuiThemeProvider"
 
-import {createStore, history} from './store';
-import {NavContainer, BaseRoute} from './nav';
+import {createStore, history} from "./store"
+import {NavContainer, BaseRoute} from "./nav"
 
-import './App.global.scss';
+import "./App.global.scss"
 
 export class App extends React.PureComponent{
 	constructor(props){
-		super(props);
+		super(props)
 
-		this.setup();
+		this.setup()
 	}
-	
+
 	setupRedux(){
-		this.store = createStore({});
-		this.history = history;
-		window.app = this;
+		this.store = createStore({})
+		this.history = history
+		window.app = this
 	}
 	setup(){
-		this.setupRedux();
+		this.setupRedux()
 	}
 
 	render(){
@@ -45,7 +45,7 @@ export class App extends React.PureComponent{
 					</MuiThemeProvider>
 				</ConnectedRouter>
 			</Provider>
-		);
+		)
 	}
 }
-export default hot(module)(App);
+export default hot(module)(App)

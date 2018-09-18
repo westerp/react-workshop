@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react"
 
-export const HomeContainer = () => (<div>Home</div>);
-export default HomeContainer;
+export const HomeContainer = () => (<div>Home</div>)
+export default HomeContainer

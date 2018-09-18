@@ -1,7 +1,7 @@
-import NavContainer from './NavContainer';
-import BaseRoute from './BaseRoute';
+import NavContainer from "./NavContainer"
+import BaseRoute from "./BaseRoute"
 export {
 	NavContainer,
 	BaseRoute
-};
-export default BaseRoute;
+}
+export default BaseRoute
