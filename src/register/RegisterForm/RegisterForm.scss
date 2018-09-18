@@ -1,0 +1,30 @@
+.container{
+  form{
+    display: flex;
+    > *{
+      flex: 1 1 auto;
+      width: 50%;
+      box-sizing: border-box;
+      padding: 0 25px;
+    }
+  }
+}
+.separator{
+  border: 0;
+  padding: 0;
+  margin: 0;
+  height: 35px;
+}
+.avatarFrame{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.controls{
+  margin: 45px 25px 0;
+  text-align: right;
+  > *{
+    margin-right: 12px;
+  }
+}

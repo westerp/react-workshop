@@ -1,5 +1,3 @@
-/* global module */
-
 import React from "react"
 import {Provider} from "react-redux"
 import {ConnectedRouter} from "connected-react-router"
@@ -14,7 +12,6 @@ import "./App.global.scss"
 export class App extends React.PureComponent{
 	constructor(props){
 		super(props)
-
 		this.setup()
 	}
 

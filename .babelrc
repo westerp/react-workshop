@@ -5,6 +5,13 @@
 	],
 	"plugins": [
 		"@babel/plugin-proposal-class-properties",
-		"react-hot-loader/babel"
-	]
+		"@babel/plugin-transform-runtime"
+	],
+	"env": {
+		"dev": {
+			"plugins": [
+				"react-hot-loader/babel"
+			]
+		}
+	}
 }

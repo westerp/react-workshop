@@ -1,3 +1,9 @@
 import {combineReducers} from "redux"
 
-export default combineReducers({})
+import registerForm from "../register/registerForm.duck"
+import users from "../users/users.duck"
+
+export default combineReducers({
+	registerForm,
+	users
+})
