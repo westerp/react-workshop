@@ -8,7 +8,6 @@ const srcPath = leaf => {
 
 const config = {
 	entry: [
-		"babel-polyfill",
 		srcPath("./index.js"),
 	],
 

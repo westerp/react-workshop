@@ -1,5 +1,6 @@
+const webpack = require("webpack")
 const base = require("./webpack.config")
-const ExtractTextPlugin = require("extract-text-webpack-plugin")
+const MiniCssExtractPlugin = require("mini-css-extract-plugin")
 
 module.exports = {
 	...base,
@@ -11,17 +12,21 @@ module.exports = {
 			{
 				test: /\.global\.(css|scss|sass)$/,
 				exclude: /node_modules/,
-				use: ExtractTextPlugin.extract([{
+				use: [{
+					loader: MiniCssExtractPlugin.loader
+				}, {
 					loader: "css-loader",
 				}, {
 					loader: "postcss-loader"
 				}, {
 					loader: "sass-loader"
-				}])
+				}]
 			}, {
 				test: /\.(css|scss|sass)$/,
 				exclude: /(node_modules|\.global\.(css|scss|sass))/,
-				use: ExtractTextPlugin.extract([{
+				use: [{
+					loader: MiniCssExtractPlugin.loader
+				}, {
 					loader: "css-loader",
 					options: {
 						modules: true,
@@ -32,16 +37,18 @@ module.exports = {
 					loader: "postcss-loader"
 				}, {
 					loader: "sass-loader"
-				}])
+				}]
 			}]
 	},
 
 	plugins: [
 		...base.plugins,
 
-		new ExtractTextPlugin({
-			filename: "styles/styles.[hash:10].css",
-			allChunks: true
+		new webpack.DefinePlugin({
+			"process.env.NODE_ENV": JSON.stringify("production")
+		}),
+		new MiniCssExtractPlugin({
+			filename: "styles/styles.[hash:10].css"
 		})
 	]
 }
