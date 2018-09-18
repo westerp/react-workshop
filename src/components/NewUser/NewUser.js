@@ -8,7 +8,11 @@ export class NewUser extends React.PureComponent{
 			<div>
 				<form>
 					<input type="text" value={this.props.name} onChange={this.onChangeProp("name")}/>
-					<input type="text" value={this.props.type} onChange={this.onChangeProp("type")}/>
+					<select value={this.props.type} onChange={this.onChangeProp("type")}>
+						{this.props.types.map(type => (
+							<option key={type} value={type}>{type}</option>
+						))}
+					</select>
 					<textarea value={this.props.description} onChange={this.onChangeProp("description")}/>
 					<Link to="/">Back</Link>
 					<button type="submit" onClick={this.props.onCreate}>Create user</button>
@@ -25,6 +29,7 @@ export class NewUser extends React.PureComponent{
 		name: PropTypes.string,
 		type: PropTypes.string,
 		description: PropTypes.string,
+		types: PropTypes.arrayOf(PropTypes.string),
 
 		onPropChange: PropTypes.func,
 		onCreate: PropTypes.func

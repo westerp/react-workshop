@@ -3,6 +3,7 @@ import {Switch, Route} from "react-router"
 
 import Nav from "../components/Nav"
 import UserList from "../components/UserList"
+import NewUser from "../components/NewUser"
 import Blank from "../components/Blank"
 
 export const Routes = () => {
@@ -11,7 +12,7 @@ export const Routes = () => {
 			<Nav/>
 			<UserList/>
 			<Switch>
-				<Route path="/new" component={Blank}/>
+				<Route path="/new" component={NewUser}/>
 				<Route path="/view" component={Blank}/>
 				<Route path="/edit" component={Blank}/>
 			</Switch>

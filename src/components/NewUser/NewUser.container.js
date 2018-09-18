@@ -7,6 +7,7 @@ const mapStateToProps = (state) => {
 	return {
 		name: newUserDuck.getPropValue(state, "name"),
 		type: newUserDuck.getPropValue(state, "type"),
+		types: newUserDuck.getTypes(state),
 		description: newUserDuck.getPropValue(state, "description")
 	}
 }

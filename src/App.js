@@ -3,6 +3,7 @@ import {Provider} from "react-redux"
 import {ConnectedRouter} from "connected-react-router"
 import {hot} from "react-hot-loader"
 import {createStore, history} from "./store"
+import {ducks} from "./ducks"
 
 import Routes from "./routes"
 
@@ -12,6 +13,16 @@ export class App extends React.PureComponent{
 	constructor(props){
 		super(props)
 		this.setup()
+	}
+
+	get ducks() {
+		return ducks
+	}
+	get storeState() {
+		return this.store.getState()
+	}
+	get dispatch() {
+		return this.store.dispatch
 	}
 
 	setupRedux(){
