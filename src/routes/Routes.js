@@ -1,9 +1,10 @@
 import React from "react"
-import {Switch, Route} from "react-router"
+import {Switch, Route, Redirect} from "react-router"
 
 import Nav from "../components/Nav"
 import UserList from "../components/UserList"
 import NewUser from "../components/NewUser"
+import ViewUser from "../components/ViewUser"
 import Blank from "../components/Blank"
 
 export const Routes = () => {
@@ -13,8 +14,9 @@ export const Routes = () => {
 			<UserList/>
 			<Switch>
 				<Route path="/new" component={NewUser}/>
-				<Route path="/view" component={Blank}/>
-				<Route path="/edit" component={Blank}/>
+				<Route path="/view/:id" component={ViewUser}/>
+				<Route path="/edit/:id" component={Blank}/>
+				<Redirect to="/"/>
 			</Switch>
 		</React.Fragment>
 	)
