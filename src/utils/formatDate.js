@@ -5,6 +5,6 @@ export const formatDate = (date) => {
 		date = new Date()
 	}
 
-	return `${date.getFullYear()}-${pad(date.getMonth()+1)}-${pad(date.getDay())}`
+	return `${date.getFullYear()}-${pad(date.getMonth()+1)}-${pad(date.getDay())} ${pad(date.getHours())}:${pad(date.getMinutes())}:${pad(date.getSeconds())}`
 }
 export default formatDate

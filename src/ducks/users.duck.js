@@ -16,6 +16,7 @@ export const setOrder = createNsAction("SET_ORDER")
 
 export const addNewUser = createNsAction("ADD_USER", (user) => ({
 	id: uid(),
+	created: new Date(),
 	...user
 }))
 export const updateUser = createNsAction("UPDATE_USER")
