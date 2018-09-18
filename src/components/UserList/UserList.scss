@@ -1,0 +1,32 @@
+$newbtn-size: 45px;
+.container{
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	table {
+
+	}
+
+	.newBtn{
+		display: block;
+		align-self: flex-end;
+		border-radius: 50%;
+		width: $newbtn-size;
+		height: $newbtn-size;
+		margin: 10px;
+		border: 0;
+		background: rgb(91,167,199);
+		color:	rgb(232,241,243);
+		cursor: pointer;
+		outline: none;
+		transition: {
+			property: transform;
+			duration: .3s;
+			timing-function: cubic-bezier(0.075, 0.82, 0.165, 1);
+		}
+		&:hover, &:focus{
+			transform: scale(1.3);
+		}
+	}
+}

@@ -2,16 +2,18 @@ import React from "react"
 import PropTypes from "prop-types"
 import { UserListItem } from "./UserListItem"
 
+import classes from "./UserList.scss"
+
 export class name extends React.PureComponent{
 	render(){
 		return (
-			<div>
+			<div className={classes.container}>
 				<table>
 					<thead>
 						<tr>
-							<th>Name</th>
-							<th>Type</th>
-							<th>Created</th>
+							<th className={classes.nameColumn}>Name</th>
+							<th className={classes.typeColumn}>Type</th>
+							<th className={classes.createdColumn}>Created</th>
 						</tr>
 					</thead>
 					<tbody>
@@ -20,7 +22,9 @@ export class name extends React.PureComponent{
 						))}
 					</tbody>
 				</table>
-				<button type="button" onClick={this.props.onNewClick}>New</button>
+				<button className={classes.newBtn} type="button" onClick={this.props.onNewClick}>
+					<i className="fas fa-plus"/>
+				</button>
 			</div>
 		)
 	}

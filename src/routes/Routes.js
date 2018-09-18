@@ -10,7 +10,7 @@ import Blank from "../components/Blank"
 export const Routes = () => {
 	return (
 		<React.Fragment>
-			<Nav/>
+			{/* <Nav/> */}
 			<UserList/>
 			<Switch>
 				<Route path="/new" component={NewUser}/>
