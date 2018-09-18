@@ -32,6 +32,7 @@
 	"rules": {
 		"indent": [2, "tab"],
 		"quotes": [2, "double", {"avoidEscape": true, "allowTemplateLiterals": true}],
+		"no-unused-vars": 1,
 		"no-var": 2,
 		"no-extra-boolean-cast": 0,
 		"eqeqeq": [2, "always", {"null": "ignore"}],

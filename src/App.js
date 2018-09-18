@@ -2,8 +2,9 @@ import React from "react"
 import {Provider} from "react-redux"
 import {ConnectedRouter} from "connected-react-router"
 import {hot} from "react-hot-loader"
-
 import {createStore, history} from "./store"
+
+import Routes from "./routes"
 
 import "./App.global.scss"
 
@@ -26,7 +27,7 @@ export class App extends React.PureComponent{
 		return (
 			<Provider store={this.store}>
 				<ConnectedRouter history={this.history}>
-					<><div>test</div></>
+					<Routes/>
 				</ConnectedRouter>
 			</Provider>
 		)
