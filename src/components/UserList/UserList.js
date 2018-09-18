@@ -20,13 +20,13 @@ export class name extends React.PureComponent{
 						))}
 					</tbody>
 				</table>
+				<button type="button" onClick={this.props.onNewClick}>New</button>
 			</div>
 		)
 	}
 
 	static defaultProps = {
-		users: [],
-		onNewClick: () => {}
+		users: []
 	}
 	static propTypes = {
 		users: PropTypes.arrayOf(PropTypes.object),
