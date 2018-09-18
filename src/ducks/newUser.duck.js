@@ -1,10 +1,14 @@
 import {createAction, handleActions} from "redux-actions"
+import pick from "lodash/pick"
 
 const _ns = "newUser/"
 export const getState = state => state.newUser || {}
 const createNsAction = (action, payload) => createAction(_ns+action, payload)
 
 export const getTypes = (state) => getState(state).types || []
+export const getNewUser = (state) => (
+	pick(getState(state), ["name", "type", "description"])
+)
 
 export const getPropValue = (state, propName) => getState(state)[propName] || ""
 export const setPropValue = createNsAction("SET_PROP_VALUE", (propName, propValue) => ({propName, propValue}))

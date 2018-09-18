@@ -6,7 +6,7 @@ import * as userDucks from "../../ducks/users.duck"
 
 const mapStateToProps = (globalState) => {
 	return {
-		users: userDucks.getUser(globalState)
+		users: userDucks.getUsers(globalState)
 	}
 }
 export default connect(mapStateToProps)(UserList)

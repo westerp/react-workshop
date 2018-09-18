@@ -1,5 +1,5 @@
 import {createAction, handleActions} from "redux-actions"
-import {uuidv4} from "uuid"
+import uid from "uuid/v4"
 import omit from "lodash/omit"
 
 const _ns = "users/"
@@ -15,7 +15,7 @@ export const getUser = (state, id) => getState(state).byId[id]
 export const setOrder = createNsAction("SET_ORDER")
 
 export const addNewUser = createNsAction("ADD_USER", (user) => ({
-	id: uuidv4(),
+	id: uid(),
 	...user
 }))
 export const updateUser = createNsAction("UPDATE_USER")
