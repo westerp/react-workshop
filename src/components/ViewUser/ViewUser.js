@@ -11,8 +11,13 @@ export class ViewUser extends React.PureComponent{
 				<p>{formatDate(this.props.created)}</p>
 				<p>{this.props.type}</p>
 				<p>{this.props.description}</p>
+				<button type="button" onClick={this.deleteThisUser}>Delete</button>
 			</div>
 		)
+	}
+
+	deleteThisUser = () => {
+		this.props.onDelete(this.props.id)
 	}
 
 	static propTypes = {
@@ -20,7 +25,9 @@ export class ViewUser extends React.PureComponent{
 		name: PropTypes.string,
 		created: PropTypes.instanceOf(Date),
 		type: PropTypes.string,
-		description: PropTypes.string
+		description: PropTypes.string,
+
+		onDelete: PropTypes.func
 	}
 }
 export default ViewUser

@@ -43,8 +43,8 @@ export const reducer = handleActions({
 	}),
 	[removeUser]: (state, {payload}) => ({
 		...state,
-		order: state.order.filter((id) => payload.id !== id),
-		byId: omit(state.byId, [payload.id])
+		order: state.order.filter((id) => payload !== id),
+		byId: omit(state.byId, [payload])
 	}),
 	[setOrder]: (state, {payload}) => ({
 		...state,
