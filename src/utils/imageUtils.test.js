@@ -29,6 +29,9 @@ beforeAll(() => {
 		return proxy
 	}
 })
+beforeEach(() => {
+	failImgSrcRequest = false
+})
 afterAll(() => {
 	document.createElement = oldCreateElement
 })
@@ -50,7 +53,6 @@ describe("imageUtils", () => {
 			expect.assertions(1)
 
 			const {loadImage} = imageUtils
-			failImgSrcRequest = false
 			const result = await loadImage("abc")
 			expect(result).toEqual("abc")
 		})
