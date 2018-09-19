@@ -7,6 +7,7 @@ module.exports = {
 
 	module: {
 		rules: [
+			...baseConfig.module.rules,
 			{
 				test: /\.(css|scss|sass)$/,
 				exclude: /node_modules/,

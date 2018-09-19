@@ -1,3 +1,5 @@
-import "./styles.scss"
+import App from "./App"
+import {render} from "react-dom"
+import React from "react"
 
-export const test = "true"
+render(<App/>, document.getElementById("app"))

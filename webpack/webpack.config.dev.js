@@ -11,11 +11,13 @@ module.exports = {
 		historyApiFallback: true,
 		https: true,
 		hot: true,
-		overlay: true
+		overlay: true,
+		stats: baseConfig.stats
 	},
 
 	module: {
 		rules: [
+			...baseConfig.module.rules,
 			{
 				test: /\.(css|scss|sass)$/,
 				exclude: /node_modules/,

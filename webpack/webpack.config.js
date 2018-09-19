@@ -41,7 +41,19 @@ const config = {
 				minifyURLs: true
 			}
 		})
-	]
+	],
+
+	stats: {
+		assets: true,
+		children: false,
+		chunks: false,
+		hash: false,
+		modules: false,
+		publicPath: true,
+		timings: false,
+		version: false,
+		warnings: true
+	}
 }
 
 module.exports = config
