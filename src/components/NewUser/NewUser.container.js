@@ -18,7 +18,7 @@ const mapDispatchToProps = (dispatch) => ({
 	onPropChange: (propName, propValue) => dispatch(newUserDuck.setPropValue(propName, propValue)),
 	onCreate: () => {
 		dispatch(userConnectors.addNewUser())
-		//dispatch(push("/"))
+		dispatch(push("/"))
 	}
 })
 export default connect(mapStateToProps, mapDispatchToProps)(NewUser)
