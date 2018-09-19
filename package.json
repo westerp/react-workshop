@@ -4,6 +4,9 @@
   "main": "index.js",
   "author": "Thomas <thomas.rudfoss@gmail.com>",
   "license": "MIT",
+  "repository": {
+    "url": "https://github.com/rudfoss/react-workshop"
+  },
   "scripts": {
     "clean:dist": "node ./scripts/clean-dist.js",
     "build:webpack": "webpack --config ./webpack/webpack.config.prod.js",
