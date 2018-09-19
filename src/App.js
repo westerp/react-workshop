@@ -1,9 +1,15 @@
 import React from "react"
+import Button from "./Button"
+import {hot} from "react-hot-loader"
 
 export class App extends React.PureComponent{
 	render() {
-		return <div>Hello world</div>
+		return (
+			<div>
+				<Button text="Custom text"/>
+			</div>
+		)
 	}
 }
 
-export default App
+export default hot(module)(App)
