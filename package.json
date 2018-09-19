@@ -11,6 +11,7 @@
     "clean:dist": "node ./scripts/clean-dist.js",
     "build:webpack": "webpack --config ./webpack/webpack.config.prod.js",
     "build": "yarn clean:dist && yarn build:webpack",
+    "lint": "eslint --color src",
     "start": "webpack-dev-server --config ./webpack/webpack.config.dev.js --progress --colors"
   },
   "devDependencies": {
