@@ -1,5 +1,9 @@
 module.exports = {
+	moduleNameMapper: {
+		"\\.(css|scss)$": "identity-obj-proxy"
+	},
 	moduleFileExtensions: [
-		"js",
-	]
+		"js"
+	],
+	testURL: "http://localhost"
 }
