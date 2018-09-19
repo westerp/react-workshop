@@ -14,6 +14,16 @@ const config = {
 		filename: "src/[name]-[hash].js"
 	},
 
+	module: {
+		rules: [
+			{
+				test: /\.(js|jsx)$/,
+				exclude: /node_modules/,
+				use: "babel-loader"
+			}
+		]
+	},
+
 	plugins: [
 		new HtmlWebpackPlugin({
 			inject: "body",
