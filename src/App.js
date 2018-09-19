@@ -7,7 +7,7 @@ import {ducks} from "./ducks"
 
 import Routes from "./routes"
 
-import "./App.global.scss"
+import "./styles/App.global.scss"
 
 export class App extends React.PureComponent{
 	constructor(props){
