@@ -2,8 +2,11 @@ import React from "react"
 import PropTypes from "prop-types"
 import {Link} from "react-router-dom"
 import cn from "classnames"
+import Field from "../Field"
 
 import classes from "./NewUser.scss"
+import { DescriptionField } from "../DescriptionField/DescriptionField"
+import SelectField from "../SelectField"
 
 export class NewUser extends React.PureComponent{
 	state = {
@@ -15,25 +18,20 @@ export class NewUser extends React.PureComponent{
 			<div className={cn(classes.container, "frame", {[classes.show]: this.state.visible})}>
 				<div className={classes.formContainer}>
 					<form onSubmit={this.onSubmit} className={classes.form}>
-						<div className="field">
-							<label htmlFor="new-user-name">User name</label>
-							<input id="new-user-name" type="text" value={this.props.name} onChange={this.onChangeProp("name")}/>
-						</div>
-						<div className="field">
-							<label htmlFor="new-user-type">Type</label>
-							<select id="new-user-type" value={this.props.type} onChange={this.onChangeProp("type")}>
-								{this.props.types.map(type => (
-									<option key={type} value={type}>{type}</option>
-								))}
-							</select>
-						</div>
-						<div className="field">
-							<label htmlFor="new-user-description">Description</label>
-							<textarea
-								id="new-user-description"
+						<Field label="User name" id="new-user-name">
+							<input type="text" value={this.props.name} onChange={this.onChangeProp("name")}/>
+						</Field>
+						<Field label="Type" id="new-user-type">
+							<SelectField
+								value={this.props.type}
+								options={this.props.types}
+								onChange={this.onChangeProp("type")}/>
+						</Field>
+						<Field label="Description" id="new-user-description">
+							<DescriptionField
 								value={this.props.description}
 								onChange={this.onChangeProp("description")}/>
-						</div>
+						</Field>
 						<div className="controls">
 							<Link to="/">Back</Link>
 							<button className="right" type="submit" onClick={this.onSubmit}>Create user</button>
