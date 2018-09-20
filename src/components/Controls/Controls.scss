@@ -1,0 +1,10 @@
+.controls{
+	display: flex;
+	> * {
+		flex: 0 0 auto;
+	}
+
+	:global(.right) {
+		margin-left: auto;
+	}
+}

@@ -3,10 +3,11 @@ import PropTypes from "prop-types"
 import {Link} from "react-router-dom"
 import cn from "classnames"
 import Field from "../Field"
+import DescriptionField from "../DescriptionField"
+import SelectField from "../SelectField"
+import Controls from "../Controls"
 
 import classes from "./NewUser.scss"
-import { DescriptionField } from "../DescriptionField/DescriptionField"
-import SelectField from "../SelectField"
 
 export class NewUser extends React.PureComponent{
 	state = {
@@ -19,7 +20,7 @@ export class NewUser extends React.PureComponent{
 				<div className={classes.formContainer}>
 					<form onSubmit={this.onSubmit} className={classes.form}>
 						<Field label="User name" id="new-user-name">
-							<input type="text" value={this.props.name} onChange={this.onChangeProp("name")}/>
+							<input autoFocus type="text" value={this.props.name} onChange={this.onChangeProp("name")}/>
 						</Field>
 						<Field label="Type" id="new-user-type">
 							<SelectField
@@ -32,10 +33,10 @@ export class NewUser extends React.PureComponent{
 								value={this.props.description}
 								onChange={this.onChangeProp("description")}/>
 						</Field>
-						<div className="controls">
+						<Controls>
 							<Link to="/">Back</Link>
 							<button className="right" type="submit" onClick={this.onSubmit}>Create user</button>
-						</div>
+						</Controls>
 					</form>
 				</div>
 			</div>
