@@ -1,11 +1,13 @@
 import React from "react"
 import PropTypes from "prop-types"
 
+import classes from "./Field.scss"
+
 export class Field extends React.PureComponent{
 	render(){
 		const {label, id} = this.props
 		return (
-			<div>
+			<div className={classes.field}>
 				<label htmlFor={id}>{label}</label>
 				{this.renderFirstOrOnlyChild()}
 			</div>

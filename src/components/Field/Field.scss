@@ -1,0 +1,23 @@
+.field{
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	margin-bottom: 30px;
+
+	label{
+		text-align: center;
+		padding: 10px 0;
+		font-weight: 600;
+	}
+
+	input[type="text"], select, textarea{
+		padding: 5px;
+		margin: 0;
+		box-sizing: border-box;
+		width: 100%;
+	}
+	textarea{
+		resize: vertical;
+	}
+}
