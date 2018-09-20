@@ -15,10 +15,13 @@ export class ViewUser extends React.PureComponent{
 				<div className={classes.container}>
 					<Avatar value={this.props.avatar} size="200px"/>
 					<h2>{this.props.name}</h2>
-					<p>{this.props.id}</p>
-					<p>{formatDate(this.props.created)}</p>
-					<p>{this.props.type}</p>
-					<p>{this.props.description}</p>
+					<p className={classes.id}>{this.props.id}</p>
+					<p><strong>Created</strong> {formatDate(this.props.created)}</p>
+					<p><strong>Type</strong> {this.props.type}</p>
+					<p><strong>Description</strong></p>
+					<p>
+						{this.props.description}
+					</p>
 					<Controls>
 						<Link to="/">Back</Link>
 						<button className="right" type="button" onClick={this.deleteThisUser}>Delete</button>
