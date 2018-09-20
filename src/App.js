@@ -3,7 +3,7 @@ import {hot} from "react-hot-loader"
 import NewUser from "./components/NewUser"
 import {Provider} from "react-redux"
 import {createReduxStore} from "./store"
-import * as indexDucks from "./ducks/index.duck"
+import * as newUserDuck from "./ducks/newUser.duck"
 
 export class App extends React.PureComponent{
 	constructor(props) {
@@ -14,7 +14,7 @@ export class App extends React.PureComponent{
 
 	get ducks() {
 		return {
-			indexDucks
+			newUserDuck
 		}
 	}
 
@@ -24,9 +24,9 @@ export class App extends React.PureComponent{
 
 	render() {
 		return (
-			<>
+			<Provider store={this.store}>
 				<NewUser/>
-			</>
+			</Provider>
 		)
 	}
 }

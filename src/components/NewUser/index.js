@@ -1,2 +1,2 @@
-import NewUser from "./NewUser"
+import NewUser from "./NewUser.container"
 export default NewUser

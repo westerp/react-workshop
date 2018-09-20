@@ -4,7 +4,7 @@ import PropTypes from "prop-types"
 export class SelectField extends React.PureComponent{
 	render(){
 		return (
-			<select>
+			<select value={this.props.value}>
 				{this.props.options.map(option => (
 					<option key={option} value={option}>{option}</option>
 				))}
@@ -13,7 +13,8 @@ export class SelectField extends React.PureComponent{
 	}
 
 	static propTypes = {
-		options: PropTypes.arrayOf(PropTypes.string)
+		options: PropTypes.arrayOf(PropTypes.string),
+		value: PropTypes.string
 	}
 }
 export default SelectField

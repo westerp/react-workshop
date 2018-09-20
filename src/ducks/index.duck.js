@@ -1,6 +1,6 @@
 import {createAction, handleActions} from "redux-actions"
 
-export const myFirstAction = createAction("MY_FIRST_ACTION", (id) => (id))
+export const myFirstAction = createAction("MY_FIRST_ACTION")
 
 export const reducer = handleActions({
 	[myFirstAction]: (state, action) => {
