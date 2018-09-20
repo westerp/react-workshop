@@ -8,7 +8,7 @@ const createNsAction = (action, payload) => createAction(_ns+action, payload)
 export const getTypes = (state) => getState(state).types || []
 export const getNewUser = (state) => ({
 	created: new Date(),
-	...pick(getState(state), ["name", "type", "description"])
+	...pick(getState(state), ["avatar", "name", "type", "description"])
 })
 
 export const getPropValue = (state, propName) => getState(state)[propName] || ""

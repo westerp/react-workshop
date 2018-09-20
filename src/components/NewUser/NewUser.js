@@ -7,6 +7,7 @@ import DescriptionField from "../DescriptionField"
 import SelectField from "../SelectField"
 import Controls from "../Controls"
 import Avatar from "../Avatar"
+import Sidebar from "../Sidebar"
 
 import classes from "./NewUser.scss"
 
@@ -17,43 +18,34 @@ export class NewUser extends React.PureComponent{
 
 	render(){
 		return (
-			<div className={cn(classes.container, "frame", {[classes.show]: this.state.visible})}>
-				<div className={classes.formContainer}>
-					<form onSubmit={this.onSubmit} className={classes.form}>
-						<Avatar value={this.props.avatar} onChange={this.onChangeProp("avatar")}/>
-						<Field label="User name" id="new-user-name">
-							<input autoFocus type="text" value={this.props.name} onChange={this.onChangeProp("name")}/>
-						</Field>
-						<Field label="Type" id="new-user-type">
-							<SelectField
-								value={this.props.type}
-								options={this.props.types}
-								onChange={this.onChangeProp("type")}/>
-						</Field>
-						<Field label="Description" id="new-user-description">
-							<DescriptionField
-								value={this.props.description}
-								onChange={this.onChangeProp("description")}/>
-						</Field>
-						<Controls>
-							<Link to="/">Back</Link>
-							<button className="right" type="submit" onClick={this.onSubmit}>Create user</button>
-						</Controls>
-					</form>
-				</div>
-			</div>
+			<Sidebar>
+				<form onSubmit={this.onSubmit} className={classes.form}>
+					<Avatar canChange value={this.props.avatar} onChange={this.onChangeProp("avatar")}/>
+					<Field label="User name" id="new-user-name">
+						<input autoFocus type="text" value={this.props.name} onChange={this.onChangeProp("name")}/>
+					</Field>
+					<Field label="Type" id="new-user-type">
+						<SelectField
+							value={this.props.type}
+							options={this.props.types}
+							onChange={this.onChangeProp("type")}/>
+					</Field>
+					<Field label="Description" id="new-user-description">
+						<DescriptionField
+							value={this.props.description}
+							onChange={this.onChangeProp("description")}/>
+					</Field>
+					<Controls>
+						<Link to="/">Back</Link>
+						<button className="right" type="submit" onClick={this.onSubmit}>Create user</button>
+					</Controls>
+				</form>
+			</Sidebar>
 		)
 	}
 
 	componentDidMount() {
 		this.props.onReset()
-		// We need react to mount the component in the DOM before we can apply the transitions
-		// so "schedule" the state change for after the stack completes
-		setTimeout(() => {
-			this.setState({
-				visible: true
-			})
-		})
 	}
 
 	onSubmit = (e) => {
