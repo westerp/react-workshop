@@ -16,7 +16,7 @@ export class NewUser extends React.PureComponent{
 		return (
 			<form>
 				<Field label="User name" id="new-user-name">
-					<input type="text" value={this.props.name}/>
+					<input type="text" value={this.props.name} onChange={this.onNameChange}/>
 				</Field>
 				<Field label="Type" id="new-user-type">
 					<SelectField options={TYPES} value={this.props.type}/>
@@ -28,10 +28,16 @@ export class NewUser extends React.PureComponent{
 		)
 	}
 
+	onNameChange = (evt) => {
+		this.props.onNameChange(evt.target.value)
+	}
+
 	static propTypes = {
 		name: PropTypes.string,
 		type: PropTypes.string,
-		description: PropTypes.string
+		description: PropTypes.string,
+
+		onNameChange: PropTypes.func.isRequired
 	}
 }
 export default NewUser
