@@ -8,7 +8,7 @@ const config = {
 	devtool: "source-map",
 
 	devServer: {
-		port: 1337,
+		port: 1338,
 		historyApiFallback: true,
 		https: true,
 		hot: true,
