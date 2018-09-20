@@ -23,6 +23,7 @@ export const reducer = handleActions({
 	}),
 	[resetUser]: (state) => ({
 		...state,
+		avatar: "",
 		name: "",
 		type: "User",
 		description: ""
