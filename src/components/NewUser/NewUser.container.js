@@ -7,6 +7,7 @@ import * as userConnectors from "../../ducks/user.connectors"
 
 const mapStateToProps = (state) => {
 	return {
+		avatar: newUserDuck.getPropValue(state, "avatar"),
 		name: newUserDuck.getPropValue(state, "name"),
 		type: newUserDuck.getPropValue(state, "type"),
 		types: newUserDuck.getTypes(state),

@@ -6,6 +6,7 @@ import Field from "../Field"
 import DescriptionField from "../DescriptionField"
 import SelectField from "../SelectField"
 import Controls from "../Controls"
+import Avatar from "../Avatar"
 
 import classes from "./NewUser.scss"
 
@@ -19,6 +20,7 @@ export class NewUser extends React.PureComponent{
 			<div className={cn(classes.container, "frame", {[classes.show]: this.state.visible})}>
 				<div className={classes.formContainer}>
 					<form onSubmit={this.onSubmit} className={classes.form}>
+						<Avatar value={this.props.avatar} onChange={this.onChangeProp("avatar")}/>
 						<Field label="User name" id="new-user-name">
 							<input autoFocus type="text" value={this.props.name} onChange={this.onChangeProp("name")}/>
 						</Field>
@@ -58,11 +60,13 @@ export class NewUser extends React.PureComponent{
 		e.preventDefault()
 		this.props.onCreate()
 	}
-	onChangeProp = (name) => (evt) => {
-		this.props.onPropChange(name, evt.target.value)
+	onChangeProp = (name) => (evtOrValue) => {
+		const value = evtOrValue.target ? evtOrValue.target.value : evtOrValue
+		this.props.onPropChange(name, value)
 	}
 
 	static propTypes = {
+		avatar: PropTypes.string,
 		name: PropTypes.string,
 		type: PropTypes.string,
 		description: PropTypes.string,
