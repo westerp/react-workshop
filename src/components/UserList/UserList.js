@@ -4,6 +4,7 @@ import { UserListItem } from "./UserListItem"
 import cn from "classnames"
 
 import classes from "./UserList.scss"
+import columnClasses from "./UserListColumns.scss"
 
 export class name extends React.PureComponent{
 	render(){
@@ -13,9 +14,10 @@ export class name extends React.PureComponent{
 				<table>
 					<thead>
 						<tr>
-							<th className={classes.nameColumn}>Name</th>
-							<th className={classes.typeColumn}>Type</th>
-							<th className={classes.createdColumn}>Created</th>
+							<th></th>
+							<th className={columnClasses.name}>Name</th>
+							<th className={columnClasses.type}>Type</th>
+							<th className={columnClasses.created}>Created</th>
 						</tr>
 					</thead>
 					<tbody>
