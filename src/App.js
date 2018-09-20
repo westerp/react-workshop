@@ -4,6 +4,7 @@ import {ConnectedRouter} from "connected-react-router"
 import {hot} from "react-hot-loader"
 import {createStore, history} from "./store"
 import {ducks} from "./ducks"
+import {load, save} from "./store/persistent"
 
 import Routes from "./routes"
 
@@ -26,9 +27,14 @@ export class App extends React.PureComponent{
 	}
 
 	setupRedux(){
-		this.store = createStore({})
+		this.store = createStore(load())
+		this.store.subscribe(this.saveState)
 		this.history = history
 		window.app = this
+	}
+	saveState = () => {
+		const state = this.store.getState()
+		save(state)
 	}
 	setup(){
 		this.setupRedux()

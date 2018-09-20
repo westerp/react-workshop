@@ -5,6 +5,7 @@ import Sidebar from "../Sidebar"
 import Avatar from "../Avatar"
 import Controls from "../Controls"
 import {Link} from "react-router-dom"
+import toDate from "../../utils/toDate"
 
 import classes from "./ViewUser.scss"
 
@@ -16,7 +17,7 @@ export class ViewUser extends React.PureComponent{
 					<Avatar value={this.props.avatar} size="200px"/>
 					<h2>{this.props.name}</h2>
 					<p className={classes.id}>{this.props.id}</p>
-					<p><strong>Created</strong> {formatDate(this.props.created)}</p>
+					<p><strong>Created</strong> {formatDate(toDate(this.props.created))}</p>
 					<p><strong>Type</strong> {this.props.type}</p>
 					<p><strong>Description</strong></p>
 					<p>
@@ -39,7 +40,7 @@ export class ViewUser extends React.PureComponent{
 		avatar: PropTypes.string,
 		id: PropTypes.string,
 		name: PropTypes.string,
-		created: PropTypes.instanceOf(Date),
+		created: PropTypes.string,
 		type: PropTypes.string,
 		description: PropTypes.string,
 

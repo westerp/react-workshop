@@ -7,7 +7,7 @@ const createNsAction = (action, payload) => createAction(_ns+action, payload)
 
 export const getTypes = (state) => getState(state).types || []
 export const getNewUser = (state) => ({
-	created: new Date(),
+	created: (new Date()).toString(),
 	...pick(getState(state), ["avatar", "name", "type", "description"])
 })
 

@@ -3,8 +3,10 @@ import PropTypes from "prop-types"
 import formatDate from "../../utils/formatDate"
 import {Link} from "react-router-dom"
 import Avatar from "../Avatar"
+import toDate from "../../utils/toDate"
 
 import columnClasses from "./UserListColumns.scss"
+
 
 export const UserListItem = ({avatar, id, name, type, created}) => {
 	return (
@@ -12,7 +14,7 @@ export const UserListItem = ({avatar, id, name, type, created}) => {
 			<td><Avatar value={avatar} size="30px"/></td>
 			<td className={columnClasses.name}><Link to={"/view/"+id}>{name}</Link></td>
 			<td className={columnClasses.type}>{type}</td>
-			<td className={columnClasses.created}>{formatDate(created)}</td>
+			<td className={columnClasses.created}>{formatDate(toDate(created))}</td>
 		</tr>
 	)
 }
@@ -21,6 +23,6 @@ UserListItem.propTypes = {
 	id: PropTypes.string,
 	name: PropTypes.string,
 	type: PropTypes.string,
-	created: PropTypes.instanceOf(Date)
+	created: PropTypes.string
 }
 export default UserListItem
