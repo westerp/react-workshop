@@ -1,13 +1,13 @@
 import React from "react"
-import Button from "./Button"
 import {hot} from "react-hot-loader"
+import NewUser from "./components/NewUser"
 
 export class App extends React.PureComponent{
 	render() {
 		return (
-			<div>
-				<Button text="Custom text"/>
-			</div>
+			<>
+				<NewUser/>
+			</>
 		)
 	}
 }
