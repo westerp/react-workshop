@@ -1,7 +1,6 @@
 import React from "react"
 import PropTypes from "prop-types"
 import {Link} from "react-router-dom"
-import cn from "classnames"
 import Field from "../Field"
 import DescriptionField from "../DescriptionField"
 import SelectField from "../SelectField"
