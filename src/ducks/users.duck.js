@@ -6,10 +6,13 @@ export const getState = (state) => state.users || {}
 const createNsAction = (action, payload) => createAction(_ns+action, payload)
 
 export const getUsers = (state) => {
-	const localState = getState(state)
+	const localState = {
+		order: [],
+		...getState(state)
+	}
 	return localState.order.map(userId => localState.byId[userId])
 }
-export const getUser = (state, id) => getState(state).byId[id]
+export const getUser = (state, id) => (getState(state).byId || {})[id]
 
 export const addNewUser = createNsAction("ADD_NEW_USER", (newUser) => {
 	return {
