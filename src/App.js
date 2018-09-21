@@ -1,51 +1,53 @@
-/* global module */
+import React from "react"
+import {Provider} from "react-redux"
+import {ConnectedRouter} from "connected-react-router"
+import {hot} from "react-hot-loader"
+import {createStore, history} from "./store"
+import {ducks} from "./ducks"
+import {load, save} from "./store/persistent"
 
-import React from 'react';
-import {Provider} from 'react-redux';
-import {ConnectedRouter} from 'react-router-redux';
-import {hot} from 'react-hot-loader';
-import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'; 
+import Routes from "./routes"
 
-import {createStore, history} from './store';
-import {NavContainer, BaseRoute} from './nav';
-
-import './App.global.scss';
+import "./styles/App.global.scss"
 
 export class App extends React.PureComponent{
 	constructor(props){
-		super(props);
-
-		this.setup();
+		super(props)
+		this.setup()
 	}
-	
+
+	get ducks() {
+		return ducks
+	}
+	get storeState() {
+		return this.store.getState()
+	}
+	get dispatch() {
+		return this.store.dispatch
+	}
+
 	setupRedux(){
-		this.store = createStore({});
-		this.history = history;
-		window.app = this;
+		this.store = createStore(load())
+		this.store.subscribe(this.saveState)
+		this.history = history
+		window.app = this
+	}
+	saveState = () => {
+		const state = this.store.getState()
+		save(state)
 	}
 	setup(){
-		this.setupRedux();
+		this.setupRedux()
 	}
 
 	render(){
 		return (
 			<Provider store={this.store}>
 				<ConnectedRouter history={this.history}>
-					<MuiThemeProvider>
-						<React.Fragment>
-							<header>
-								<NavContainer/>
-							</header>
-							<div>
-								<BaseRoute/>
-							</div>
-							<footer>
-							</footer>
-						</React.Fragment>
-					</MuiThemeProvider>
+					<Routes/>
 				</ConnectedRouter>
 			</Provider>
-		);
+		)
 	}
 }
-export default hot(module)(App);
+export default hot(module)(App)

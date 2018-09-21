@@ -1,17 +1,15 @@
-const webpack = require('webpack');
-const path = require('path');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
+const path = require("path")
+const HtmlWebpackPlugin = require("html-webpack-plugin")
 
-const base = path.resolve(__dirname, '../');
+const base = path.resolve(__dirname, "../")
 const srcPath = leaf => {
-	return path.resolve(base, './src', leaf);
+	return path.resolve(base, "./src", leaf)
 }
 
 const config = {
 	entry: [
-			'babel-polyfill',
-			srcPath('./index.js'),
-		],
+		srcPath("./index.js"),
+	],
 
 	optimization: {
 		splitChunks: {
@@ -26,39 +24,39 @@ const config = {
 	},
 
 	output: {
-		path: path.resolve(base, './dist'),
-		filename: 'src/[name]-[hash].js',
-    publicPath: '/'
+		path: path.resolve(base, "./dist"),
+		filename: "src/[name]-[hash].js",
+		publicPath: "/"
 	},
-	
+
 	module: {
 		rules: [{
 			test: /\.(js|jsx)$/,
 			exclude: /node_modules/,
-			use: 'babel-loader'
+			use: "babel-loader"
 		}]
 	},
 
 	plugins: [
 		new HtmlWebpackPlugin({
-			inject: 'body',
+			inject: "body",
 			hash: true,
-			template: srcPath('./index.html'),
-      minify: {
-        removeComments: true,
-        collapseWhitespace: true,
-        removeRedundantAttributes: true,
-        useShortDoctype: true,
-        removeEmptyAttributes: true,
-        removeStyleLinkTypeAttributes: true,
-        keepClosingSlash: true,
-        minifyJS: true,
-        minifyCSS: true,
-        minifyURLs: true
-      }
+			template: srcPath("./index.html"),
+			minify: {
+				removeComments: true,
+				collapseWhitespace: true,
+				removeRedundantAttributes: true,
+				useShortDoctype: true,
+				removeEmptyAttributes: true,
+				removeStyleLinkTypeAttributes: true,
+				keepClosingSlash: true,
+				minifyJS: true,
+				minifyCSS: true,
+				minifyURLs: true
+			}
 		})
 	],
-	
+
 	stats: {
 		assets: true,
 		children: false,
@@ -70,6 +68,6 @@ const config = {
 		version: false,
 		warnings: true
 	}
-};
+}
 
-module.exports = config;
+module.exports = config

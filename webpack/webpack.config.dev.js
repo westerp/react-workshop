@@ -1,14 +1,14 @@
-const webpack = require('webpack');
-const base = require('./webpack.config');
+const webpack = require("webpack")
+const base = require("./webpack.config")
 
 const config = {
 	...base,
 
-	mode: 'development',
-	devtool: 'source-map',
+	mode: "development",
+	devtool: "source-map",
 
 	devServer: {
-		port: 1337,
+		port: 1338,
 		historyApiFallback: true,
 		https: true,
 		hot: true,
@@ -19,42 +19,42 @@ const config = {
 	module: {
 		rules: [
 			...base.module.rules,
-		{
-			test: /\.global\.(css|scss|sass)$/,
-			exclude: /node_modules/,
-			use: [{
-				loader: 'style-loader'
+			{
+				test: /\.global\.(css|scss|sass)$/,
+				exclude: /node_modules/,
+				use: [{
+					loader: "style-loader"
+				}, {
+					loader: "css-loader",
+				}, {
+					loader: "postcss-loader"
+				}, {
+					loader: "sass-loader"
+				}]
 			}, {
-				loader: 'css-loader',
-			}, {
-				loader: 'postcss-loader'
-			}, {
-				loader: 'sass-loader'
+				test: /\.(css|scss|sass)$/,
+				exclude: /(node_modules|\.global\.(css|scss|sass))/,
+				use: [{
+					loader: "style-loader"
+				}, {
+					loader: "css-loader",
+					options: {
+						modules: true,
+						localIdentName: "[name]-[local]--[hash:base64:5]",
+						importLoaders: 2
+					}
+				}, {
+					loader: "postcss-loader"
+				}, {
+					loader: "sass-loader"
+				}]
 			}]
-		}, {
-			test: /\.(css|scss|sass)$/,
-			exclude: /(node_modules|\.global\.(css|scss|sass))/,
-			use: [{
-				loader: 'style-loader'
-			}, {
-				loader: 'css-loader',
-				options: {
-					modules: true,
-					localIdentName: '[name]-[local]--[hash:base64:5]',
-					importLoaders: 2
-				}
-			}, {
-				loader: 'postcss-loader'
-			}, {
-				loader: 'sass-loader'
-			}]
-		}]
 	},
 
 	plugins: [
 		...base.plugins,
 		new webpack.HotModuleReplacementPlugin()
 	]
-};
+}
 
-module.exports = config;
+module.exports = config
