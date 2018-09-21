@@ -1,11 +1,11 @@
 import {createStore, applyMiddleware, combineReducers, compose} from "redux"
 const composer = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose
 
-import reducer from "../ducks/newUser.duck"
+import {reducers} from "../ducks"
 
 export const createReduxStore = (initialState = {}) => {
 	return createStore(
-		reducer,
+		combineReducers(reducers),
 		initialState,
 		composer()
 	)

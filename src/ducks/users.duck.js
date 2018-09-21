@@ -1,12 +1,17 @@
 import {createAction, handleActions} from "redux-actions"
 import uid from "uuid/v4"
 
-export const getUsers = (state) => {
-	return state.order.map(userId => state.byId[userId])
-}
-export const getUser = (state, id) => state.byId[id]
+const _ns = "users/"
+export const getState = (state) => state.users || {}
+const createNsAction = (action, payload) => createAction(_ns+action, payload)
 
-export const addNewUser = createAction("ADD_NEW_USER", (newUser) => {
+export const getUsers = (state) => {
+	const localState = getState(state)
+	return localState.order.map(userId => localState.byId[userId])
+}
+export const getUser = (state, id) => getState(state).byId[id]
+
+export const addNewUser = createNsAction("ADD_NEW_USER", (newUser) => {
 	return {
 		id: uid(),
 		...newUser

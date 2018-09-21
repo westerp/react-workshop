@@ -1,13 +1,17 @@
 import {createAction, handleActions} from "redux-actions"
 
-export const getName = (state) => state.name || ""
-export const setName = createAction("SET_NEW_USER_NAME")
+const _ns = "newUser/"
+export const getState = (state) => state.newUser || {}
+const createNsAction = (action, payload) => createAction(_ns+action, payload)
 
-export const getDescription = (state) => state.description || ""
-export const setDescription = createAction("SET_NEW_USER_DESCRIPTION")
+export const getName = (state) => getState(state).name || ""
+export const setName = createNsAction("SET_NEW_USER_NAME")
 
-export const getType = (state) => state.type || ""
-export const setType = createAction("SET_NEW_USER_TYPE")
+export const getDescription = (state) => getState(state).description || ""
+export const setDescription = createNsAction("SET_NEW_USER_DESCRIPTION")
+
+export const getType = (state) => getState(state).type || ""
+export const setType = createNsAction("SET_NEW_USER_TYPE")
 
 export const reducer = handleActions({
 	[setName]: (state, action) => {
