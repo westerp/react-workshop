@@ -22,7 +22,10 @@ export class NewUser extends React.PureComponent{
 						onChange={this.onNameChange}/>
 				</Field>
 				<Field label="Type" id="new-user-type">
-					<SelectField options={TYPES} value={this.props.type}/>
+					<SelectField
+						options={TYPES}
+						value={this.props.type}
+						onChange={this.onTypeChange}/>
 				</Field>
 				<Field label="Description" id="new-user-description">
 					<textarea
@@ -39,6 +42,9 @@ export class NewUser extends React.PureComponent{
 	onDescriptionChange = (evt) => {
 		this.props.onDescriptionChange(evt.target.value)
 	}
+	onTypeChange = (newType) => {
+		this.props.onTypeChange(newType)
+	}
 
 	static propTypes = {
 		name: PropTypes.string,
@@ -46,7 +52,8 @@ export class NewUser extends React.PureComponent{
 		description: PropTypes.string,
 
 		onNameChange: PropTypes.func.isRequired,
-		onDescriptionChange: PropTypes.func.isRequired
+		onDescriptionChange: PropTypes.func.isRequired,
+		onTypeChange: PropTypes.func.isRequired
 	}
 }
 export default NewUser
