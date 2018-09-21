@@ -1,5 +1,6 @@
 import React from "react"
 import PropTypes from "prop-types"
+import {Link} from "react-router-dom"
 
 import UserListItem from "./UserListItem"
 
@@ -22,6 +23,7 @@ export class UserList extends React.PureComponent{
 						))}
 					</tbody>
 				</table>
+				<Link to="/new">New user</Link>
 			</div>
 		)
 	}

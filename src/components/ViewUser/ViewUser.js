@@ -5,15 +5,17 @@ export class ViewUser extends React.PureComponent{
 	render(){
 		return (
 			<div>
-				<p>{this.props.user.name}</p>
-				<p>{this.props.user.type}</p>
-				<p>{this.props.user.description}</p>
+				<p>{this.props.name}</p>
+				<p>{this.props.type}</p>
+				<p>{this.props.description}</p>
 			</div>
 		)
 	}
 
 	static propTypes = {
-		user: PropTypes.object.isRequired
+		name: PropTypes.string,
+		type: PropTypes.string,
+		description: PropTypes.string,
 	}
 }
 export default ViewUser

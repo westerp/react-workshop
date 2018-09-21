@@ -1,13 +1,13 @@
 import {connect} from "react-redux"
 import ViewUser from "./ViewUser"
 
-const mapStateToProps = (state) => {
+import * as usersDuck from "../../ducks/users.duck"
+
+const mapStateToProps = (state, ownProps) => {
+	const user = usersDuck.getUser(state, ownProps.match.params.userId)
+	
 	return {
-		user: {
-			name: "hello",
-			description: "desc",
-			type: "type"
-		}
+		...user
 	}
 }
 const mapDispatchToProps = (dispatch) => ({

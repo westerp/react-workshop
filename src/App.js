@@ -1,12 +1,10 @@
 import React from "react"
 import {hot} from "react-hot-loader"
-import NewUser from "./components/NewUser"
 import {Provider} from "react-redux"
 import {createReduxStore, history} from "./store"
 import {ducks} from "./ducks"
-import UserList from "./components/UserList"
-import ViewUser from "./components/ViewUser"
 import {ConnectedRouter} from "connected-react-router" 
+import Routes from "./Routes"
 
 export class App extends React.PureComponent{
 	constructor(props) {
@@ -27,11 +25,7 @@ export class App extends React.PureComponent{
 		return (
 			<Provider store={this.store}>
 				<ConnectedRouter history={history}>
-					<React.Fragment>
-						<UserList/>
-						<NewUser/>
-						<ViewUser/>
-					</React.Fragment>
+					<Routes/>
 				</ConnectedRouter>
 			</Provider>
 		)
