@@ -4,6 +4,7 @@ import NewUser from "./components/NewUser"
 import {Provider} from "react-redux"
 import {createReduxStore} from "./store"
 import {ducks} from "./ducks"
+import UserList from "./components/UserList"
 
 export class App extends React.PureComponent{
 	constructor(props) {
@@ -23,7 +24,10 @@ export class App extends React.PureComponent{
 	render() {
 		return (
 			<Provider store={this.store}>
-				<NewUser/>
+				<React.Fragment>
+					<UserList/>
+					<NewUser/>
+				</React.Fragment>
 			</Provider>
 		)
 	}
