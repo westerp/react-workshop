@@ -13,6 +13,14 @@ export const setDescription = createNsAction("SET_NEW_USER_DESCRIPTION")
 export const getType = (state) => getState(state).type || ""
 export const setType = createNsAction("SET_NEW_USER_TYPE")
 
+export const getNewUser = (state) => {
+	return {
+		name: getName(state),
+		description: getDescription(state),
+		type: getType(state)
+	}
+}
+
 export const reducer = handleActions({
 	[setName]: (state, action) => {
 		return {

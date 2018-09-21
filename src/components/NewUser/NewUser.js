@@ -14,7 +14,7 @@ const TYPES = [
 export class NewUser extends React.PureComponent{
 	render(){
 		return (
-			<form>
+			<form onSubmit={this.stopOnSubmit}>
 				<Field label="User name" id="new-user-name">
 					<input
 						type="text"
@@ -32,8 +32,13 @@ export class NewUser extends React.PureComponent{
 						value={this.props.description}
 						onChange={this.onDescriptionChange}></textarea>
 				</Field>
+				<button type="submit" onClick={this.props.onNewUser}>Create user</button>
 			</form>
 		)
+	}
+
+	stopOnSubmit = (evt) => {
+		evt.preventDefault()
 	}
 
 	onNameChange = (evt) => {
@@ -53,7 +58,8 @@ export class NewUser extends React.PureComponent{
 
 		onNameChange: PropTypes.func.isRequired,
 		onDescriptionChange: PropTypes.func.isRequired,
-		onTypeChange: PropTypes.func.isRequired
+		onTypeChange: PropTypes.func.isRequired,
+		onNewUser: PropTypes.func.isRequired
 	}
 }
 export default NewUser

@@ -22,9 +22,9 @@ export const reducer = handleActions({
 	[addNewUser]: (state, action) => {
 		return {
 			...state,
-			order: state.order.concat([action.payload.id]),
+			order: (state.order || []).concat([action.payload.id]),
 			byId: {
-				...state.byId,
+				...(state.byId || {}),
 				[action.payload.id]: action.payload
 			}
 		}

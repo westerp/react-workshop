@@ -2,6 +2,7 @@ import {connect} from "react-redux"
 import NewUser from "./NewUser"
 
 import * as newUserDucks from "../../ducks/newUser.duck"
+import * as userCombiner from "../../ducks/user.combiner"
 
 const mapStateToProps = (state) => {
 	return {
@@ -20,7 +21,8 @@ const mapDispatchToProps = (dispatch) => {
 		},
 		onTypeChange: (newType) => {
 			dispatch(newUserDucks.setType(newType))
-		}
+		},
+		onNewUser: () => dispatch(userCombiner.addNewUser)
 	}
 }
 
