@@ -21,6 +21,16 @@ export class App extends React.PureComponent{
 			name: newName
 		})
 	}
+	onHomeTownChange = (newHometown) => {
+		this.setState({
+			homeTown: newHometown
+		})
+	}
+	onSelectChange = (newValue) => {
+		this.setState({
+			natoName: newValue
+		})
+	}
 
 	render() {
 		return <div>
@@ -35,9 +45,15 @@ export class App extends React.PureComponent{
 				value={this.state.name}
 				onChange={this.onNameChange}
 			/>
+			<Textbox
+				placeholder="Home Town"
+				value={this.state.homeTown}
+				onChange={this.onHomeTownChange}
+			/>
 			<Select
 				options={["alpha", "bravo", "charlie", "delta"]}
-				value="charlie"/>
+				value={this.state.natoName}
+				onChange={this.onSelectChange}/>
 		</div>
 	}
 }
