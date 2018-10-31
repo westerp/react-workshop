@@ -8,7 +8,7 @@ export class Button extends React.PureComponent {
 
 	static propTypes = {
 		title: PropTypes.string.isRequired,
-		children: PropTypes.string.isRequired,
+		children: PropTypes.any,
 
 		onClick: PropTypes.func.isRequired
 	}
