@@ -35,7 +35,9 @@ export class App extends React.PureComponent{
 				value={this.state.name}
 				onChange={this.onNameChange}
 			/>
-			<Select options={["alpha", "bravo", "charlie", "delta"]} value="charlie"/>
+			<Select
+				options={["alpha", "bravo", "charlie", "delta"]}
+				value="charlie"/>
 		</div>
 	}
 }
