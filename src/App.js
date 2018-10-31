@@ -35,7 +35,6 @@ export class App extends React.PureComponent{
 				value={this.state.name}
 				onChange={this.onNameChange}
 			/>
-			<Textbox placeholder="Home town" readOnly/>
 			<Select options={["alpha", "bravo", "charlie", "delta"]} value="charlie"/>
 		</div>
 	}

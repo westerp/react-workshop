@@ -3,10 +3,10 @@ import PropTypes from "prop-types"
 
 export class Select extends React.PureComponent{
 	render(){
-		const {defaultValue, options} = this.props
+		const {value, options} = this.props
 
 		return (
-			<select value={defaultValue}>
+			<select value={value}>
 				{options.map((option) => (
 					<option key={option} value={option}>{option}</option>
 				))}
@@ -16,7 +16,7 @@ export class Select extends React.PureComponent{
 
 	static propTypes = {
 		options: PropTypes.arrayOf(PropTypes.string),
-		defaultValue: PropTypes.string
+		value: PropTypes.string
 	}
 }
 export default Select
