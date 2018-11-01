@@ -1,6 +1,8 @@
 import React from "react"
 import NewUser from "./components/NewUser/NewUser"
 
+import "./styles/App.global.scss"
+
 export class App extends React.PureComponent{
 	state = {
 		name: "",
