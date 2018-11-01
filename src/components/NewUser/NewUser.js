@@ -1,7 +1,8 @@
 import React from "react"
 import PropTypes from "prop-types"
-import Textbox from "../Textbox/Textbox"
-import Select from "../Select/Select"
+import Textbox from "../Textbox"
+import Select from "../Select"
+import DescriptionField from "../DescriptionField"
 
 export class NewUser extends React.PureComponent{
 	static propTypes = {
@@ -9,6 +10,8 @@ export class NewUser extends React.PureComponent{
 
 		type: PropTypes.string,
 		types: PropTypes.arrayOf(PropTypes.string),
+
+		description: PropTypes.string,
 
 		onPropChange: PropTypes.func.isRequired
 	}
@@ -24,6 +27,10 @@ export class NewUser extends React.PureComponent{
 					value={this.props.type}
 					options={this.props.types}
 					onChange={this.createPropChangeHandlerForName("type")}/>
+				<DescriptionField
+					maxLength={200}
+					value={this.props.description}
+					onChange={this.createPropChangeHandlerForName("description")}/>
 			</form>
 		)
 	}

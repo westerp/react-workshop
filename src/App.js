@@ -5,7 +5,8 @@ export class App extends React.PureComponent{
 	state = {
 		name: "",
 		type: "User",
-		types: ["Admin", "Elevated", "User", "Reader"]
+		types: ["Admin", "Elevated", "User", "Reader"],
+		description: ""
 	}
 
 	onPropChange = (propName, newValue) => {
@@ -21,6 +22,7 @@ export class App extends React.PureComponent{
 					name={this.state.name}
 					type={this.state.type}
 					types={this.state.types}
+					description={this.state.description}
 					onPropChange={this.onPropChange}/>
 			</div>
 		)
