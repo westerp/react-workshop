@@ -25,7 +25,12 @@ export class DescriptionField extends React.PureComponent{
 
 	render() {
 		return (
-			<textarea className={classes.descriptionField} {...this.props} onChange={this.onChange}/>
+			<>
+				<textarea className={classes.descriptionField} {...this.props} onChange={this.onChange}/>
+				{this.props.maxLength >= 0 && (
+					<span>{this.props.value.length} / {this.props.maxLength}</span>
+				)}
+			</>
 		)
 	}
 }

@@ -45,6 +45,7 @@ export class NewUser extends React.PureComponent{
 					<Field label="Description" id="new-user-description">
 						<DescriptionField
 							value={this.props.description}
+							maxLength={500}
 							onChange={this.onChangeProp("description")}/>
 					</Field>
 					<Controls>
