@@ -1,5 +1,6 @@
 import React from "react"
 import NewUser from "./components/NewUser"
+import UserList from "./components/UserList"
 import pick from "lodash/pick"
 import uid from "uuid/v4"
 
@@ -33,6 +34,8 @@ export class App extends React.PureComponent{
 	render() {
 		return (
 			<div>
+				<UserList users={this.state.users}/>
+
 				<NewUser
 					name={this.state.name}
 					type={this.state.type}
