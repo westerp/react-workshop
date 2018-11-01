@@ -24,10 +24,6 @@ export class NewUser extends React.PureComponent{
 		onCreate: PropTypes.func
 	}
 
-	state = {
-		visible: false
-	}
-
 	render(){
 		return (
 			<Sidebar>
