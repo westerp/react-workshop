@@ -7,25 +7,13 @@ export class Textbox extends React.PureComponent{
 	}
 
 	render(){
-		const {
-			placeholder,
-			readOnly,
-			value
-		} = this.props
-
 		return (<input
+			{...this.props}
 			type="text"
-			placeholder={placeholder}
-			readOnly={readOnly}
-			value={value}
 			onChange={this.onChangeHandler}/>)
 	}
 
 	static propTypes = {
-		placeholder: PropTypes.string.isRequired,
-		readOnly: PropTypes.bool,
-		value: PropTypes.string,
-
 		onChange: PropTypes.func.isRequired
 	}
 }

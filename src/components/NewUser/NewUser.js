@@ -4,6 +4,7 @@ import Textbox from "../Textbox"
 import Select from "../Select"
 import DescriptionField from "../DescriptionField"
 import Sidebar from "../Sidebar"
+import Field from "../Field"
 
 export class NewUser extends React.PureComponent{
 	static propTypes = {
@@ -14,25 +15,34 @@ export class NewUser extends React.PureComponent{
 
 		description: PropTypes.string,
 
-		onPropChange: PropTypes.func.isRequired
+		onPropChange: PropTypes.func.isRequired,
+		onSubmit: PropTypes.func.isRequired
 	}
 
 	render(){
 		return (
 			<Sidebar>
-				<form>
-					<Textbox
-						placeholder="Name"
-						value={this.props.name}
-						onChange={this.createPropChangeHandlerForName("name")}/>
-					<Select
-						value={this.props.type}
-						options={this.props.types}
-						onChange={this.createPropChangeHandlerForName("type")}/>
-					<DescriptionField
-						maxLength={200}
-						value={this.props.description}
-						onChange={this.createPropChangeHandlerForName("description")}/>
+				<form onSubmit={this.onSubmit}>
+					<Field label="bbbb" id="new-user-name">
+						<Textbox
+							placeholder="Name"
+							value={this.props.name}
+							onChange={this.createPropChangeHandlerForName("name")}/>
+					</Field>
+					<Field label="bbbb" id="new-user-type">
+						<Select
+							value={this.props.type}
+							options={this.props.types}
+							onChange={this.createPropChangeHandlerForName("type")}/>
+					</Field>
+					<Field label="bbbb" id="new-user-description">
+						<DescriptionField
+							maxLength={200}
+							value={this.props.description}
+							onChange={this.createPropChangeHandlerForName("description")}/>
+					</Field>
+
+					<button type="submit">Create user</button>
 				</form>
 			</Sidebar>
 		)
@@ -40,6 +50,11 @@ export class NewUser extends React.PureComponent{
 
 	createPropChangeHandlerForName = (name) => (newValue) => {
 		this.props.onPropChange(name, newValue)
+	}
+
+	onSubmit = (evt) => {
+		evt.preventDefault()
+		this.props.onSubmit()
 	}
 }
 export default NewUser
