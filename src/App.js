@@ -33,7 +33,7 @@ export class App extends React.PureComponent{
 
 	render() {
 		return (
-			<div>
+			<>
 				<UserList users={this.state.users}/>
 
 				<NewUser
@@ -44,7 +44,7 @@ export class App extends React.PureComponent{
 
 					onPropChange={this.onPropChange}
 					onSubmit={this.onSubmit}/>
-			</div>
+			</>
 		)
 	}
 }

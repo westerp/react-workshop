@@ -1,6 +1,8 @@
 import React from "react"
 import PropTypes from "prop-types"
 
+import columnClasses from "./UserListColumns.scss"
+
 export class UserListItem extends React.PureComponent{
 	static propTypes = {
 		name: PropTypes.string,
@@ -16,9 +18,9 @@ export class UserListItem extends React.PureComponent{
 		return (
 			<tr>
 				<td></td>
-				<td>{name}</td>
-				<td>{type}</td>
-				<td>{created}</td>
+				<td className={columnClasses.name}>{name}</td>
+				<td className={columnClasses.type}>{type}</td>
+				<td className={columnClasses.created}>{created}</td>
 			</tr>
 		)
 	}

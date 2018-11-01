@@ -2,6 +2,9 @@ import React from "react"
 import PropTypes from "prop-types"
 import UserListItem from "./UserListItem"
 
+import classes from "./UserList.scss"
+import columnClasses from "./UserListColumns.scss"
+
 export class UserList extends React.PureComponent{
 	static propTypes = {
 		users: PropTypes.arrayOf(PropTypes.object),
@@ -14,15 +17,15 @@ export class UserList extends React.PureComponent{
 
 	render(){
 		return (
-			<div>
+			<div className={classes.container + " list"}>
 				<h1>The awesome user database</h1>
 				<table>
 					<thead>
 						<tr>
 							<th></th>
-							<th>Name</th>
-							<th>Type</th>
-							<th>Created</th>
+							<th className={columnClasses.name}>Name</th>
+							<th className={columnClasses.type}>Type</th>
+							<th className={columnClasses.created}>Created</th>
 						</tr>
 					</thead>
 					<tbody>
@@ -31,7 +34,7 @@ export class UserList extends React.PureComponent{
 						))}
 					</tbody>
 				</table>
-				<div>
+				<div className={classes.newBtnContainer}>
 					<button type="button" onClick={this.props.onNewUserClick}>
 						<i className="fas fa-plus"/>
 					</button>
