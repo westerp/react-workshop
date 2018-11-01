@@ -8,6 +8,14 @@ import toDate from "../../utils/toDate"
 import columnClasses from "./UserListColumns.scss"
 
 export class UserListItem extends React.PureComponent{
+	static propTypes = {
+		avatar: PropTypes.string,
+		id: PropTypes.string,
+		name: PropTypes.string,
+		type: PropTypes.string,
+		created: PropTypes.string
+	}
+
 	render() {
 		const {avatar, id, name, type, created} = this.props
 		return (
@@ -18,14 +26,6 @@ export class UserListItem extends React.PureComponent{
 				<td className={columnClasses.created}>{formatDate(toDate(created))}</td>
 			</tr>
 		)
-	}
-
-	static propTypes = {
-		avatar: PropTypes.string,
-		id: PropTypes.string,
-		name: PropTypes.string,
-		type: PropTypes.string,
-		created: PropTypes.string
 	}
 }
 export default UserListItem

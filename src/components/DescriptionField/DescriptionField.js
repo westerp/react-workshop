@@ -4,14 +4,29 @@ import PropTypes from "prop-types"
 import classes from "./DescriptionField.scss"
 
 export class DescriptionField extends React.PureComponent{
-	render() {
-		return (
-			<textarea className={classes.descriptionField} {...this.props}/>
-		)
-	}
 	static propTypes = {
 		value: PropTypes.string,
-		onChange: PropTypes.func.isRequired
+		onChange: PropTypes.func.isRequired,
+
+		maxLength: PropTypes.number
+	}
+	static defaultProps = {
+		maxLength: -1
+	}
+
+	onChange = (evt) => {
+		const text = evt.target.value
+		if (this.props.maxLength >= 0 && text.length > this.props.maxLength) {
+			return
+		}
+
+		this.props.onChange(text)
+	}
+
+	render() {
+		return (
+			<textarea className={classes.descriptionField} {...this.props} onChange={this.onChange}/>
+		)
 	}
 }
 export default DescriptionField

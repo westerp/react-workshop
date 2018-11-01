@@ -10,6 +10,17 @@ import toDate from "../../utils/toDate"
 import classes from "./ViewUser.scss"
 
 export class ViewUser extends React.PureComponent{
+	static propTypes = {
+		avatar: PropTypes.string,
+		id: PropTypes.string,
+		name: PropTypes.string,
+		created: PropTypes.string,
+		type: PropTypes.string,
+		description: PropTypes.string,
+
+		onDelete: PropTypes.func
+	}
+
 	render(){
 		return (
 			<Sidebar>
@@ -34,17 +45,6 @@ export class ViewUser extends React.PureComponent{
 
 	deleteThisUser = () => {
 		this.props.onDelete(this.props.id)
-	}
-
-	static propTypes = {
-		avatar: PropTypes.string,
-		id: PropTypes.string,
-		name: PropTypes.string,
-		created: PropTypes.string,
-		type: PropTypes.string,
-		description: PropTypes.string,
-
-		onDelete: PropTypes.func
 	}
 }
 export default ViewUser

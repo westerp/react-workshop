@@ -7,10 +7,23 @@ import SelectField from "../SelectField"
 import Controls from "../Controls"
 import Avatar from "../Avatar"
 import Sidebar from "../Sidebar"
+import Textbox from "../Textbox"
 
 import classes from "./NewUser.scss"
 
 export class NewUser extends React.PureComponent{
+	static propTypes = {
+		avatar: PropTypes.string,
+		name: PropTypes.string,
+		type: PropTypes.string,
+		description: PropTypes.string,
+		types: PropTypes.arrayOf(PropTypes.string),
+
+		onReset: PropTypes.func,
+		onPropChange: PropTypes.func,
+		onCreate: PropTypes.func
+	}
+
 	state = {
 		visible: false
 	}
@@ -21,7 +34,7 @@ export class NewUser extends React.PureComponent{
 				<form onSubmit={this.onSubmit} className={classes.form}>
 					<Avatar canChange value={this.props.avatar} onChange={this.onChangeProp("avatar")}/>
 					<Field label="User name" id="new-user-name">
-						<input autoFocus type="text" value={this.props.name} onChange={this.onChangeProp("name")}/>
+						<Textbox autoFocus value={this.props.name} onChange={this.onChangeProp("name")}/>
 					</Field>
 					<Field label="Type" id="new-user-type">
 						<SelectField
@@ -51,21 +64,8 @@ export class NewUser extends React.PureComponent{
 		e.preventDefault()
 		this.props.onCreate()
 	}
-	onChangeProp = (name) => (evtOrValue) => {
-		const value = evtOrValue.target ? evtOrValue.target.value : evtOrValue
-		this.props.onPropChange(name, value)
-	}
-
-	static propTypes = {
-		avatar: PropTypes.string,
-		name: PropTypes.string,
-		type: PropTypes.string,
-		description: PropTypes.string,
-		types: PropTypes.arrayOf(PropTypes.string),
-
-		onReset: PropTypes.func,
-		onPropChange: PropTypes.func,
-		onCreate: PropTypes.func
+	onChangeProp = (name) => (newValue) => {
+		this.props.onPropChange(name, newValue)
 	}
 }
 export default NewUser

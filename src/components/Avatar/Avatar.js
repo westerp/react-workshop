@@ -5,6 +5,13 @@ import cn from "classnames"
 import classes from "./Avatar.scss"
 
 export class Avatar extends React.PureComponent{
+	static propTypes = {
+		value: PropTypes.string,
+		canChange: PropTypes.bool,
+		size: PropTypes.string,
+		onChange: PropTypes.func
+	}
+
 	render(){
 		return (
 			<div className={classes.container}>
@@ -27,13 +34,6 @@ export class Avatar extends React.PureComponent{
 		if (promptValue != null) {
 			this.props.onChange(promptValue)
 		}
-	}
-
-	static propTypes = {
-		value: PropTypes.string,
-		canChange: PropTypes.bool,
-		size: PropTypes.string,
-		onChange: PropTypes.func
 	}
 }
 export default Avatar

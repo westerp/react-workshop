@@ -7,6 +7,14 @@ import classes from "./UserList.scss"
 import columnClasses from "./UserListColumns.scss"
 
 export class name extends React.PureComponent{
+	static propTypes = {
+		users: PropTypes.arrayOf(PropTypes.object),
+		onNewClick: PropTypes.func
+	}
+	static defaultProps = {
+		users: []
+	}
+
 	render(){
 		return (
 			<div className={cn(classes.container, "list")}>
@@ -33,14 +41,6 @@ export class name extends React.PureComponent{
 				</div>
 			</div>
 		)
-	}
-
-	static defaultProps = {
-		users: []
-	}
-	static propTypes = {
-		users: PropTypes.arrayOf(PropTypes.object),
-		onNewClick: PropTypes.func
 	}
 }
 export default name
