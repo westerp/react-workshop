@@ -4,7 +4,6 @@ import PropTypes from "prop-types"
 export class Select extends React.PureComponent{
 	static propTypes = {
 		options: PropTypes.arrayOf(PropTypes.string),
-		value: PropTypes.string,
 
 		onChange: PropTypes.func.isRequired
 	}
@@ -14,10 +13,10 @@ export class Select extends React.PureComponent{
 	}
 
 	render(){
-		const {value, options} = this.props
+		const {options, ...rest} = this.props
 
 		return (
-			<select value={value} onChange={this.onChangeHandler}>
+			<select {...rest} onChange={this.onChangeHandler}>
 				{options.map((option) => (
 					<option key={option} value={option}>{option}</option>
 				))}

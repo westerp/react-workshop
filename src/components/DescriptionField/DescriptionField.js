@@ -3,7 +3,6 @@ import PropTypes from "prop-types"
 
 export class DescriptionField extends React.PureComponent{
 	static propTypes = {
-		value: PropTypes.string,
 		maxLength: PropTypes.number,
 
 		onChange: PropTypes.func.isRequired
@@ -19,11 +18,13 @@ export class DescriptionField extends React.PureComponent{
 	}
 
 	render(){
+		const {maxLength, value, ...rest} = this.props
+
 		return (
 			<>
-				<textarea value={this.props.value} onChange={this.onChange}/>
-				{this.props.maxLength > 0 && (
-					<span>{this.props.value.length} / {this.props.maxLength}</span>
+				<textarea {...rest} onChange={this.onChange}/>
+				{maxLength > 0 && (
+					<span>{value.length} / {maxLength}</span>
 				)}
 			</>
 		)
