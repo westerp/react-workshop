@@ -16,7 +16,7 @@ export class DescriptionField extends React.PureComponent{
 
 	onChange = (evt) => {
 		const text = evt.target.value
-		if (this.props.maxLength >= 0 && text.length > this.props.maxLength) {
+		if (this.props.maxLength > 0 && text.length > this.props.maxLength) {
 			return
 		}
 
