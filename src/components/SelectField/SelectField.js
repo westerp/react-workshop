@@ -1,6 +1,5 @@
 import React from "react"
 import PropTypes from "prop-types"
-import omit from "lodash/omit"
 
 export class SelectField extends React.PureComponent{
 	static propTypes = {
@@ -10,19 +9,16 @@ export class SelectField extends React.PureComponent{
 	}
 
 	render(){
+		const {options, ...rest} = this.props
 		return (
-			<select {...this.selectProps}>
-				{this.props.options.map(option => (
+			<select {...rest}>
+				{options.map(option => (
 					<option key={option} value={option}>
 						{option}
 					</option>
 				))}
 			</select>
 		)
-	}
-
-	get selectProps() {
-		return omit(this.props, ["options"])
 	}
 }
 export default SelectField

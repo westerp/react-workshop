@@ -7,22 +7,25 @@ import toDate from "../../utils/toDate"
 
 import columnClasses from "./UserListColumns.scss"
 
+export class UserListItem extends React.PureComponent{
+	render() {
+		const {avatar, id, name, type, created} = this.props
+		return (
+			<tr>
+				<td><Avatar value={avatar} size="30px"/></td>
+				<td className={columnClasses.name}><Link to={"/view/"+id}>{name}</Link></td>
+				<td className={columnClasses.type}>{type}</td>
+				<td className={columnClasses.created}>{formatDate(toDate(created))}</td>
+			</tr>
+		)
+	}
 
-export const UserListItem = ({avatar, id, name, type, created}) => {
-	return (
-		<tr>
-			<td><Avatar value={avatar} size="30px"/></td>
-			<td className={columnClasses.name}><Link to={"/view/"+id}>{name}</Link></td>
-			<td className={columnClasses.type}>{type}</td>
-			<td className={columnClasses.created}>{formatDate(toDate(created))}</td>
-		</tr>
-	)
-}
-UserListItem.propTypes = {
-	avatar: PropTypes.string,
-	id: PropTypes.string,
-	name: PropTypes.string,
-	type: PropTypes.string,
-	created: PropTypes.string
+	static propTypes = {
+		avatar: PropTypes.string,
+		id: PropTypes.string,
+		name: PropTypes.string,
+		type: PropTypes.string,
+		created: PropTypes.string
+	}
 }
 export default UserListItem
