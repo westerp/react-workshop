@@ -3,7 +3,7 @@ import NewUser from "./NewUser"
 import {push} from "connected-react-router"
 
 import * as newUserDuck from "../../ducks/newUser.duck"
-import * as userConnectors from "../../ducks/user.connectors"
+import * as userCombiner from "../../ducks/user.combiner"
 
 const mapStateToProps = (state) => {
 	return {
@@ -18,7 +18,7 @@ const mapDispatchToProps = (dispatch) => ({
 	onReset: () => dispatch(newUserDuck.resetUser()),
 	onPropChange: (propName, propValue) => dispatch(newUserDuck.setPropValue(propName, propValue)),
 	onCreate: () => {
-		dispatch(userConnectors.addNewUser())
+		dispatch(userCombiner.addNewUser())
 		dispatch(push("/"))
 	}
 })
