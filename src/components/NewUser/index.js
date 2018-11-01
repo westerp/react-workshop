@@ -1,3 +1,3 @@
-import NewUserContainer from "./NewUser.container"
-export {NewUserContainer}
-export default NewUserContainer
+import NewUserConnector from "./NewUser.connector"
+export {NewUserConnector}
+export default NewUserConnector

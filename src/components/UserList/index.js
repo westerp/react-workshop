@@ -1,3 +1,3 @@
-import UserListContainer from "./UserList.container"
-export {UserListContainer}
-export default UserListContainer
+import UserListConnector from "./UserList.connector"
+export {UserListConnector}
+export default UserListConnector
