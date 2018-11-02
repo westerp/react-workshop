@@ -22,7 +22,7 @@ export class DescriptionField extends React.PureComponent{
 
 		return (
 			<>
-				<textarea {...rest} onChange={this.onChange}/>
+				<textarea value={value} {...rest} onChange={this.onChange}/>
 				{maxLength > 0 && (
 					<span>{value.length} / {maxLength}</span>
 				)}

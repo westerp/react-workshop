@@ -9,7 +9,7 @@ export class Routes extends React.Component{
 			<>
 				<UserList/>
 				<Switch>
-					<Route path="/new" render={() => <div>hello</div>}/>
+					<Route path="/new" component={NewUser}/>
 					<Route path="/view" component={null}/>
 				</Switch>
 			</>
