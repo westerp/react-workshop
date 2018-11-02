@@ -2,6 +2,7 @@ import {connect} from "react-redux"
 import NewUser from "./NewUser"
 
 import * as newUserDuck from "../../ducks/newUser.duck"
+import {addNewUserToUsers} from "../../ducks/newUser.combiner"
 
 const mapStateToProps = (globalState) => {
 	return {
@@ -17,7 +18,9 @@ const mapDispatchToProps = (dispatch) => {
 			const actionToDispatch = newUserDuck.setPropValue(name, newValue)
 			dispatch(actionToDispatch)
 		},
-		onSubmit: () => {}
+		onSubmit: () => {
+			dispatch(addNewUserToUsers())
+		}
 	}
 }
 
