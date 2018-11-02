@@ -20,7 +20,7 @@ export const reducer = handleActions({
 	[setPropValue]: (state, action) => {
 		return {
 			...state,
-			[action.payload.name]: action.payload.value
+			[action.payload.prop]: action.payload.value
 		}
 	}
 }, {})

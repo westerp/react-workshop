@@ -13,7 +13,10 @@ const mapStateToProps = (globalState) => {
 }
 const mapDispatchToProps = (dispatch) => {
 	return {
-		onPropChange: () => {},
+		onPropChange: (name, newValue) => {
+			const actionToDispatch = newUserDuck.setPropValue(name, newValue)
+			dispatch(actionToDispatch)
+		},
 		onSubmit: () => {}
 	}
 }
