@@ -1,5 +1,6 @@
 import {connect} from "react-redux"
 import NewUser from "./NewUser"
+import { push } from "connected-react-router"
 
 import * as newUserDuck from "../../ducks/newUser.duck"
 import {addNewUserToUsers} from "../../ducks/newUser.combiner"
@@ -20,6 +21,8 @@ const mapDispatchToProps = (dispatch) => {
 		},
 		onSubmit: () => {
 			dispatch(addNewUserToUsers())
+			dispatch(newUserDuck.resetNewUser())
+			dispatch(push("/"))
 		}
 	}
 }

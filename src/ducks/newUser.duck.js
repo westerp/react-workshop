@@ -17,6 +17,8 @@ export const setPropValue = createAction("SET_PROP_VALUE", (propName, propValue)
 	value: propValue
 }))
 
+export const resetNewUser = createAction("RESET_NEW_USER_FORM")
+
 export const getNewUser = (globalState) => {
 	const state = getState(globalState)
 
@@ -34,6 +36,14 @@ export const reducer = handleActions({
 		return {
 			...state,
 			[action.payload.prop]: action.payload.value
+		}
+	},
+	[resetNewUser]: (state) => {
+		return {
+			...state,
+			name: "",
+			type: "User",
+			description: ""
 		}
 	}
 }, {})
