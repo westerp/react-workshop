@@ -1,5 +1,7 @@
 import {combineReducers} from "redux"
 
-export default combineReducers({
+import newUser from "../ducks/newUser.duck"
 
+export default combineReducers({
+	newUser
 })
