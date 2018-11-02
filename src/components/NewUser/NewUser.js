@@ -1,4 +1,5 @@
 import React from "react"
+import {Link} from "react-router-dom"
 import PropTypes from "prop-types"
 import Textbox from "../Textbox"
 import Select from "../Select"
@@ -42,6 +43,7 @@ export class NewUser extends React.PureComponent{
 							onChange={this.createPropChangeHandlerForName("description")}/>
 					</Field>
 
+					<Link to="/">Close</Link>
 					<button type="submit">Create user</button>
 				</form>
 			</Sidebar>
