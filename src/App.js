@@ -1,8 +1,10 @@
 import React from "react"
-import NewUser from "./components/NewUser"
-import UserList from "./components/UserList"
+import {Provider} from "react-redux"
+import {ConnectedRouter} from "connected-react-router"
 import pick from "lodash/pick"
 import uid from "uuid/v4"
+import { newStore, history } from "./store"
+import Routes from "./routes"
 
 import "./styles/App.global.scss"
 
@@ -14,6 +16,11 @@ export class App extends React.PureComponent{
 		description: "",
 
 		users: []
+	}
+
+	constructor(props) {
+		super(props)
+		this.setupRedux()
 	}
 
 	onPropChange = (propName, newValue) => {
@@ -31,20 +38,17 @@ export class App extends React.PureComponent{
 		})
 	}
 
+	setupRedux() {
+		this.store = newStore({})
+	}
+
 	render() {
 		return (
-			<>
-				<UserList users={this.state.users}/>
-
-				<NewUser
-					name={this.state.name}
-					type={this.state.type}
-					types={this.state.types}
-					description={this.state.description}
-
-					onPropChange={this.onPropChange}
-					onSubmit={this.onSubmit}/>
-			</>
+			<Provider store={this.store}>
+				<ConnectedRouter history={history}>
+					<Routes/>
+				</ConnectedRouter>
+			</Provider>
 		)
 	}
 }
