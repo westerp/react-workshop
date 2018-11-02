@@ -2,8 +2,12 @@ import {connect} from "react-redux"
 import {push} from "connected-react-router"
 import UserList from "./UserList"
 
-const mapStateToProps = (state) => {
-	return {}
+import {getUsers} from "../../ducks/users.duck"
+
+const mapStateToProps = (globalState) => {
+	return {
+		users: getUsers(globalState)
+	}
 }
 const mapDispatchToProps = (dispatch) => {
 	return {
