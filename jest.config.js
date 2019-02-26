@@ -4,8 +4,7 @@ module.exports = {
 		"\\.(css|scss)$": "identity-obj-proxy"
 	},
 	moduleFileExtensions: [
-		"js",
-		"json"
+		"js"
 	],
 	testURL: "http://localhost"
 }
