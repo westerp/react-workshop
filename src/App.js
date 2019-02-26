@@ -13,6 +13,7 @@ export class App extends React.PureComponent{
 	constructor(props){
 		super(props)
 		this.setup()
+		window.app = this
 	}
 
 	get ducks() {
@@ -23,6 +24,10 @@ export class App extends React.PureComponent{
 	}
 	get dispatch() {
 		return this.store.dispatch
+	}
+
+	async test() {
+		await fetch("/")
 	}
 
 	setupRedux(){
