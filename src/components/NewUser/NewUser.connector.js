@@ -23,4 +23,4 @@ const mapDispatchToProps = (dispatch) => ({
 		dispatch(push("/"))
 	}
 })
-export default connect(mapStateToProps, mapDispatchToProps)(NewUserHook)
+export default connect(mapStateToProps, mapDispatchToProps)(NewUser)
