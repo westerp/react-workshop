@@ -50,4 +50,5 @@ export class App extends React.PureComponent{
 		)
 	}
 }
+
 export default hot(module)(App)
